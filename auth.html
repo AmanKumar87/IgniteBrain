@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In / Sign Up - Ignite Brain</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS STYLES -->
+    <style>
+      /* Use the Inter font family for a clean, modern look */
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* The main background to match the homepage */
+      .gradient-bg-light {
+        background-color: #fffbf5;
+        background-image: radial-gradient(
+            at 0% 0%,
+            hsla(33, 100%, 95%, 0.4) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 100%,
+            hsla(22, 100%, 90%, 0.4) 0px,
+            transparent 50%
+          );
+      }
+    </style>
+  </head>
+  <body class="gradient-bg-light">
+    <div class="min-h-screen flex items-center justify-center p-4">
+      <div class="w-full max-w-5xl mx-auto">
+        <div
+          class="bg-white/60 backdrop-blur-xl rounded-3xl shadow-2xl ring-1 ring-black/5 overflow-hidden grid grid-cols-1 md:grid-cols-2"
+        >
+          <!-- Left Panel: Visual and Welcome Message -->
+          <div class="hidden md:block relative">
+            <img
+              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2574&auto=format&fit=crop"
+              alt="A team of students collaborating and learning"
+              class="w-full h-full object-cover"
+              onerror="this.onerror=null;this.src='https://placehold.co/800x600/fed7aa/44403c?text=Ignite+Brain';"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-stone-900/50 to-transparent"
+            ></div>
+            <div class="absolute bottom-0 left-0 p-8">
+              <h2 class="text-3xl font-bold text-white tracking-tight">
+                Welcome to the Community.
+              </h2>
+              <p class="mt-2 text-white/80">
+                Join thousands of young innovators and start your creative
+                journey today.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Panel: Form -->
+          <div class="p-8 md:p-12">
+            <!-- Logo -->
+            <div class="text-center md:text-left mb-8">
+              <a href="#" class="inline-block">
+                <span class="text-2xl font-bold text-stone-900 tracking-tighter"
+                  >IGNITE BRAIN</span
+                >
+                <span class="block text-xs font-medium text-stone-500 -mt-1"
+                  >by CSE PATHSHALA</span
+                >
+              </a>
+            </div>
+
+            <!-- Login Form (Visible by default) -->
+            <div id="login-form">
+              <h3 class="text-2xl font-bold text-stone-800">Sign In</h3>
+              <p class="text-stone-600 mt-1">
+                Welcome back! Please enter your details.
+              </p>
+
+              <form class="mt-8 space-y-6">
+                <div>
+                  <label
+                    for="login-email"
+                    class="text-sm font-medium text-stone-700"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="login-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    class="mt-1 block w-full px-4 py-3 bg-white/50 border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="login-password"
+                    class="text-sm font-medium text-stone-700"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    id="login-password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    class="mt-1 block w-full px-4 py-3 bg-white/50 border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div class="flex items-center justify-between">
+                  <a
+                    href="#"
+                    class="text-sm font-medium text-orange-600 hover:text-orange-500"
+                    >Forgot password?</a
+                  >
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all"
+                  >
+                    Sign In
+                  </button>
+                </div>
+              </form>
+              <p class="mt-6 text-center text-sm text-stone-600">
+                Don't have an account?
+                <a
+                  href="#"
+                  id="show-register"
+                  class="font-semibold text-orange-600 hover:text-orange-500"
+                  >Sign up</a
+                >
+              </p>
+            </div>
+
+            <!-- Registration Form (Hidden by default) -->
+            <div id="register-form" class="hidden">
+              <h3 class="text-2xl font-bold text-stone-800">Create Account</h3>
+              <p class="text-stone-600 mt-1">
+                Let's get you started on your journey!
+              </p>
+
+              <form class="mt-8 space-y-6">
+                <div>
+                  <label
+                    for="register-name"
+                    class="text-sm font-medium text-stone-700"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    id="register-name"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                    class="mt-1 block w-full px-4 py-3 bg-white/50 border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="register-email"
+                    class="text-sm font-medium text-stone-700"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    id="register-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                    class="mt-1 block w-full px-4 py-3 bg-white/50 border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="register-password"
+                    class="text-sm font-medium text-stone-700"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    id="register-password"
+                    name="password"
+                    placeholder="••••••••"
+                    required
+                    class="mt-1 block w-full px-4 py-3 bg-white/50 border border-stone-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 transition-all"
+                  >
+                    Create Account
+                  </button>
+                </div>
+              </form>
+              <p class="mt-6 text-center text-sm text-stone-600">
+                Already have an account?
+                <a
+                  href="#"
+                  id="show-login"
+                  class="font-semibold text-orange-600 hover:text-orange-500"
+                  >Sign in</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAVASCRIPT to handle form switching -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const loginForm = document.getElementById("login-form");
+        const registerForm = document.getElementById("register-form");
+        const showRegisterLink = document.getElementById("show-register");
+        const showLoginLink = document.getElementById("show-login");
+
+        showRegisterLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
+        });
+
+        showLoginLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          registerForm.classList.add("hidden");
+          loginForm.classList.remove("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

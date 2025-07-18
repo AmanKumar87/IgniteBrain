@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Mission & Vision - Ignite Brain</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="gradient-bg-light text-stone-800">
+    <!-- =================================================================== -->
+    <!--                  NAVBAR (Same as other pages)                       -->
+    <!-- =================================================================== -->
+    <header class="fixed inset-x-0 top-4 z-50">
+      <nav class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex items-center justify-between px-6 py-3 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-black/5"
+        >
+          <!-- Logo Section -->
+          <div class="flex-shrink-0">
+            <a href="index.html" class="flex items-center">
+              <div>
+                <span class="text-xl font-bold text-stone-900 tracking-tighter"
+                  >IGNITE BRAIN</span
+                >
+                <span class="block text-xs font-medium text-stone-500 -mt-1"
+                  >by CSE PATHSHALA</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation Links -->
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="index.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Home</a
+            >
+            <div class="relative group py-2 -my-2">
+              <a
+                href="#"
+                class="link-underline text-sm font-semibold text-stone-700 flex items-center gap-1"
+              >
+                About
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
+              >
+                <a href="#" class="dropdown-item">Why Ignite Brain?</a>
+                <a href="mission-vision.html" class="dropdown-item"
+                  >Our Mission & Vision</a
+                >
+                <a href="whats-new.html" class="dropdown-item">What's New</a>
+                <a href="#" class="dropdown-item">Activities</a>
+                <a href="contact.html" class="dropdown-item">Contact Us</a>
+              </div>
+            </div>
+            <a
+              href="#"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Courses</a
+            >
+          </div>
+
+          <!-- Desktop Action Buttons -->
+          <div class="hidden md:flex items-center">
+            <a
+              href="auth.html"
+              class="group inline-flex items-center justify-center rounded-lg bg-orange-500 text-white px-5 py-2.5 text-sm font-semibold hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/20"
+            >
+              Login / Sign Up
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button (Hamburger) -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 text-stone-700 rounded-md hover:bg-stone-100 hover:text-stone-900"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu, hidden by default -->
+        <div id="mobile-menu" class="hidden md:hidden mt-2">
+          <div
+            class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-black/5"
+          >
+            <a
+              href="index.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Home</a
+            >
+            <div>
+              <button
+                id="mobile-about-button"
+                class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >
+                <span>About</span>
+                <svg
+                  id="mobile-about-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                id="mobile-about-submenu"
+                class="hidden pl-6 pr-2 pt-1 pb-2 space-y-1"
+              >
+                <a
+                  href="#"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Why Ignite Brain?</a
+                >
+                <a
+                  href="mission-vision.html"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Our Mission & Vision</a
+                >
+                <a
+                  href="whats-new.html"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >What's New</a
+                >
+                <a
+                  href="#"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Activities</a
+                >
+                <a
+                  href="contact.html"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Contact Us</a
+                >
+              </div>
+            </div>
+            <a
+              href="#"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Courses</a
+            >
+            <hr class="border-stone-200 my-2" />
+            <a
+              href="auth.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-white bg-orange-500"
+              >Login / Sign Up</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="overflow-x-hidden">
+      <!-- =================================================================== -->
+      <!--                  MISSION & VISION HEADER                            -->
+      <!-- =================================================================== -->
+      <section class="pt-40 pb-12 bg-platinum">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1
+            class="text-4xl md:text-5xl font-extrabold tracking-tighter text-stone-900"
+          >
+            Our Vision & Mission
+          </h1>
+          <p class="mt-4 max-w-2xl mx-auto text-lg text-stone-600">
+            Guiding our journey to empower the next generation of innovators and
+            leaders through quality education.
+          </p>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!--                  CONTENT SECTION                                    -->
+      <!-- =================================================================== -->
+      <section class="py-20 bg-fruit-nut">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Column: Image -->
+            <div class="w-full">
+              <img
+                src="https://placehold.co/600x600/fed7aa/44403c?text=Our+Vision"
+                alt="Illustration of a person looking through a telescope at a target"
+                class="rounded-2xl shadow-xl w-full h-full object-cover"
+              />
+            </div>
+
+            <!-- Right Column: Content Cards -->
+            <div class="space-y-8">
+              <!-- Our Vision Card -->
+              <div
+                class="bg-white/60 p-8 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+              >
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-rose-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                  </div>
+                  <h2 class="text-2xl font-bold text-stone-800">Our Vision</h2>
+                </div>
+                <ul class="space-y-4 text-stone-600">
+                  <li class="flex items-start gap-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span>To enhance the quality education in schools.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span>To promote academic excellence in schools.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span
+                      >To recognize the innovative talent of the pupils &
+                      encourage them.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span
+                      >To provide scholarships and stipends to BPL students for
+                      further studies.</span
+                    >
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <span>To change the youth into global leaders.</span>
+                  </li>
+                </ul>
+              </div>
+              <!-- Our Mission Card -->
+              <div
+                class="bg-white/60 p-8 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+              >
+                <div class="flex items-center gap-4 mb-6">
+                  <div
+                    class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-indigo-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
+                      />
+                    </svg>
+                  </div>
+                  <h2 class="text-2xl font-bold text-stone-800">Our Mission</h2>
+                </div>
+                <p class="text-stone-600">
+                  Establishing "CMOF EDU Voluntary Sr. Sec Schools" in agency
+                  and remote areas for BPL students.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =================================================================== -->
+    <!--                  FOOTER (Same as other pages)                       -->
+    <!-- =================================================================== -->
+    <footer class="bg-platinum">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="col-span-2 md:col-span-1">
+            <a href="index.html" class="flex items-center">
+              <div>
+                <span class="text-xl font-bold text-stone-900 tracking-tighter"
+                  >IGNITE BRAIN</span
+                >
+                <span class="block text-xs font-medium text-stone-500 -mt-1"
+                  >by CSE PATHSHALA</span
+                >
+              </div>
+            </a>
+            <p class="mt-4 text-sm text-stone-600">
+              Empowering the next generation of creators and innovators.
+            </p>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-stone-900 tracking-wider uppercase"
+            >
+              Solutions
+            </h3>
+            <ul class="mt-4 space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Learning Paths</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Kits</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-stone-900 tracking-wider uppercase"
+            >
+              Company
+            </h3>
+            <ul class="mt-4 space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Careers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-stone-900 tracking-wider uppercase"
+            >
+              Legal
+            </h3>
+            <ul class="mt-4 space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Privacy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Terms</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="mt-8 border-t border-stone-200 pt-8 md:flex md:items-center md:justify-between"
+        >
+          <div class="flex space-x-6 md:order-2">
+            <a href="#" class="text-stone-400 hover:text-stone-500">
+              <span class="sr-only">Facebook</span>
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-stone-400 hover:text-stone-500">
+              <span class="sr-only">Instagram</span>
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.795 2.013 10.148 2 12.315 2zm-1.161 1.545c-2.399 0-2.693.01-3.638.056-.945.045-1.505.2-1.994.377a3.42 3.42 0 00-1.262.824 3.42 3.42 0 00-.824 1.262c-.177.489-.332 1.05-.377 1.994-.046.945-.056 1.239-.056 3.638s.01 2.693.056 3.638c.045.945.2 1.505.377 1.994a3.42 3.42 0 00.824 1.262 3.42 3.42 0 001.262.824c.489.177 1.05.332 1.994.377.945.046 1.239.056 3.638.056s2.693-.01 3.638-.056c.945-.045 1.505-.2 1.994-.377a3.42 3.42 0 001.262-.824 3.42 3.42 0 00.824-1.262c.177-.489.332-1.05.377-1.994.046-.945.056-1.239-.056-3.638s-.01-2.693-.056-3.638c-.045-.945-.2-1.505-.377-1.994a3.42 3.42 0 00-.824-1.262 3.42 3.42 0 00-1.262-.824c-.489-.177-1.05-.332-1.994-.377-.945-.046-1.239-.056-3.638-.056zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 1.802a3.333 3.333 0 110 6.666 3.333 3.333 0 010-6.666zm5.338-3.205a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-stone-400 hover:text-stone-500">
+              <span class="sr-only">Twitter</span>
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                />
+              </svg>
+            </a>
+          </div>
+          <p class="mt-8 text-base text-stone-500 md:mt-0 md:order-1">
+            &copy; 2025 Ignite Brain. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Main Script File -->
+    <script src="script.js"></script>
+  </body>
+</html>

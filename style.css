@@ -1,0 +1,624 @@
+/* Use the Inter font family for a clean, modern look */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fffbf5; /* Creamy off-white fallback */
+}
+/* New light and creamy gradient background */
+.gradient-bg-light {
+  background-color: #fffbf5;
+  background-image: radial-gradient(
+      at 0% 0%,
+      hsla(33, 100%, 95%, 0.4) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 100%, hsla(22, 100%, 90%, 0.4) 0px, transparent 50%);
+}
+/* Animated underline for navigation links, now with a warm color */
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f97316; /* Orange-500 */
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Keyframe animations for the floating shapes in the hero */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+@keyframes float-reverse {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(20px) rotate(-10deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-reverse {
+  animation: float-reverse 8s ease-in-out infinite;
+}
+
+/* Entrance animations */
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-slide-in-up {
+  animation: slide-in-up 0.6s ease-out forwards;
+}
+/* FAQ Accordion Styles */
+/* --- NEW "Interactive Guide" FAQ Styles --- */
+.faq-container {
+  border: 1px solid #e7e5e4; /* stone-200 */
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+}
+
+.faq-item {
+  position: relative;
+  border-bottom: 1px solid #e7e5e4; /* stone-200 */
+}
+.faq-item:last-child {
+  border-bottom: none;
+}
+/* The animated left border */
+.faq-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: #f97316; /* orange-500 */
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.faq-item:hover::before,
+.faq-item.active::before {
+  transform: scaleY(1);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* gap-6 */
+  padding: 1.5rem; /* p-6 */
+  cursor: pointer;
+}
+
+.faq-number {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+  color: #d6d3d1; /* stone-400 */
+  transition: color 0.3s ease;
+}
+.faq-item:hover .faq-number,
+.faq-item.active .faq-number {
+  color: #a8a29e; /* stone-500 */
+}
+
+.faq-question .icon {
+  transition: transform 0.3s ease-out;
+}
+.faq-item.active .faq-question .icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+.faq-answer p {
+  padding: 0 1.5rem 1.5rem 5.25rem; /* Match alignment with question text */
+  color: #57534e; /* stone-600 */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-out 0.1s, transform 0.3s ease-out 0.1s;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px; /* Adjust as needed */
+}
+.faq-item.active .faq-answer p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* New Alternating Background Styles */
+.bg-platinum {
+  background-color: #ffd993;
+}
+.bg-fruit-nut {
+  background-color: #fff8e1; /* A creamy vanilla color */
+  background-image: radial-gradient(
+      at 15% 20%,
+      hsla(28, 60%, 85%, 0.3) 0px,
+      transparent 50%
+    ),
+    /* Nutty swirl */
+      radial-gradient(at 80% 70%, hsla(340, 70%, 90%, 0.4) 0px, transparent 50%),
+    /* Fruity (rose) swirl */
+      radial-gradient(at 50% 95%, hsla(35, 80%, 88%, 0.3) 0px, transparent 50%); /* Orange/caramel swirl */
+}
+
+/* Styles for the Creator's Toolkit Slideshow */
+#creator-toolkit-slideshow {
+  position: relative;
+  min-height: 440px; /* Adjust height as needed to prevent content shift */
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
+}
+.slide.active {
+  opacity: 1;
+}
+/* Why Choose Us - Infinite Scroll Section */
+#scrolling-wrapper {
+  overflow: hidden;
+  padding: 2rem 0;
+  /* Optional: adds a fade effect to the edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+#scrolling-content {
+  display: flex;
+  /* The gap between cards */
+  gap: 2rem;
+  /* Calculate the total width for 6 cards and their gaps */
+  width: calc((320px + 2rem) * 6);
+  animation: scroll-left 30s linear infinite;
+}
+
+/* Pause animation on hover */
+#scrolling-wrapper:hover #scrolling-content {
+  animation-play-state: paused;
+}
+
+.scrolling-card {
+  /* Set a fixed width for each card and prevent shrinking */
+  width: 320px;
+  flex-shrink: 0;
+  /* Re-applying original card styles */
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Move by the width of the first 3 cards + their gaps */
+    transform: translateX(calc(-1 * (320px + 2rem) * 3));
+  }
+}
+/* Learning Tree Animation Styles */
+
+/* Keyframe Animations */
+@keyframes draw-line {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Initial (pre-animation) states */
+.timeline-line {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.timeline-node,
+.timeline-card {
+  opacity: 0;
+}
+
+/* Animation trigger class added by JavaScript */
+#learning-tree-section.in-view .timeline-line {
+  animation: draw-line 1s ease-out forwards;
+}
+
+#learning-tree-section.in-view .timeline-node,
+#learning-tree-section.in-view .timeline-card {
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+/* Applying specific animations and delays */
+#learning-tree-section.in-view .timeline-node:nth-of-type(1) {
+  animation-name: pop-in;
+  animation-delay: 0.2s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(2) .timeline-card {
+  animation-name: slide-in-left;
+  animation-delay: 0.5s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(2) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 0.4s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(3) .timeline-card {
+  animation-name: slide-in-right;
+  animation-delay: 1s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(3) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 0.9s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(4) .timeline-card {
+  animation-name: slide-in-left;
+  animation-delay: 1.5s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(4) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 1.4s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(5) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 1.9s;
+}
+#learning-tree-section.in-view .text-center:nth-of-type(2) {
+  animation-name: pop-in;
+  animation-delay: 2.1s;
+}
+/* --- Hero Section Image Slideshow Styles --- */
+#hero-slideshow {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-radius: 1rem; /* rounded-2xl, to match the container */
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out; /* A soft, slow fade */
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+.max-w-7xl {
+  max-width: 90vw; /* This sets the content width to 80% of the viewport width */
+}
+/* --- Dropdown Menu Styles --- */
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  visibility: hidden;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s;
+  transform-origin: top left; /* Changed from 'top center' */
+}
+
+/* This uses Tailwind's 'group' utility class to show the menu */
+.group:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem; /* py-2 px-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500; /* medium */
+  color: #44403c; /* stone-700 */
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f97316; /* orange-500 */
+  color: #ffffff;
+}
+/* --- Mobile Menu Accordion Styles --- */
+#mobile-about-submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+/* --- New Rule to Stretch Website Horizontally --- */
+.max-w-7xl {
+  max-width: 90vw;
+}
+
+/* --- Hero Section Image Slideshow Styles --- */
+#hero-slideshow {
+  width: 100%;
+  height: 100%;
+}
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* --- Why Choose Us - Infinite Scroll Section --- */
+#scrolling-wrapper {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+#scrolling-content {
+  display: flex;
+  gap: 2rem;
+  animation: scroll-left 40s linear infinite;
+}
+#scrolling-wrapper:hover #scrolling-content {
+  animation-play-state: paused;
+}
+.scrolling-card {
+  width: 350px;
+  flex-shrink: 0;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-3 * (350px + 2rem)));
+  }
+}
+
+/* --- Learning Tree Animation Styles --- */
+@keyframes draw-line {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.timeline-line {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.timeline-node,
+.timeline-card {
+  opacity: 0;
+}
+#learning-tree-section.in-view .timeline-line {
+  animation: draw-line 1s ease-out forwards;
+}
+#learning-tree-section.in-view .timeline-node,
+#learning-tree-section.in-view .timeline-card {
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+#learning-tree-section.in-view .relative:nth-of-type(1) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 0.2s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(2) .timeline-card {
+  animation-name: slide-in-left;
+  animation-delay: 0.5s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(2) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 0.4s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(3) .timeline-card {
+  animation-name: slide-in-right;
+  animation-delay: 1s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(3) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 0.9s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(4) .timeline-card {
+  animation-name: slide-in-left;
+  animation-delay: 1.5s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(4) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 1.4s;
+}
+#learning-tree-section.in-view .relative:nth-of-type(5) .timeline-node {
+  animation-name: pop-in;
+  animation-delay: 1.9s;
+}
+#learning-tree-section.in-view .text-center:nth-of-type(2) {
+  animation-name: pop-in;
+  animation-delay: 2.1s;
+}
+/* --- Text Scroller Animation --- */
+.text-scroller-content {
+  display: flex;
+  flex-shrink: 0;
+  animation: scroll-text 20s linear infinite;
+}
+
+@keyframes scroll-text {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* --- Video Background Style --- */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+/* --- Featured Card Slideshow Styles --- */
+.featured-card-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.featured-card-slide.active {
+  opacity: 1;
+}

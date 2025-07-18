@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ignite Brain - Premium Ed-Tech Platform</title>
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,121 +12,14 @@
       rel="stylesheet"
     />
 
-    <!-- CSS STYLES -->
-    <style>
-      /* Use the Inter font family for a clean, modern look */
-      body {
-        font-family: "Inter", sans-serif;
-        background-color: #fffbf5; /* Creamy off-white fallback */
-      }
-      /* New light and creamy gradient background */
-      .gradient-bg-light {
-        background-color: #fffbf5;
-        background-image: radial-gradient(
-            at 0% 0%,
-            hsla(33, 100%, 95%, 0.4) 0px,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 100% 100%,
-            hsla(22, 100%, 90%, 0.4) 0px,
-            transparent 50%
-          );
-      }
-      /* Animated underline for navigation links, now with a warm color */
-      .link-underline {
-        position: relative;
-        text-decoration: none;
-      }
-      .link-underline::after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: -4px;
-        left: 0;
-        background-color: #f97316; /* Orange-500 */
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
-      .link-underline:hover::after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-
-      /* Keyframe animations for the floating shapes in the hero */
-      @keyframes float {
-        0% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(10deg);
-        }
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-      }
-      @keyframes float-reverse {
-        0% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(20px) rotate(-10deg);
-        }
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-      }
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
-      .animate-float-reverse {
-        animation: float-reverse 8s ease-in-out infinite;
-      }
-
-      /* Entrance animations */
-      @keyframes slide-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-slide-in-up {
-        animation: slide-in-up 0.6s ease-out forwards;
-      }
-      /* FAQ Accordion Styles */
-      .faq-question {
-        cursor: pointer;
-      }
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-      }
-      .faq-question.active + .faq-answer {
-        max-height: 200px; /* Adjust as needed */
-      }
-      .faq-question .icon {
-        transition: transform 0.3s ease-out;
-      }
-      .faq-question.active .icon {
-        transform: rotate(45deg);
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body class="gradient-bg-light text-stone-800">
-    <!-- Premium Floating Navbar with Light Theme -->
     <header class="fixed inset-x-0 top-4 z-50">
       <nav class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           class="flex items-center justify-between px-6 py-3 bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-black/5"
         >
-          <!-- Logo Section -->
           <div class="flex-shrink-0">
             <a href="#" class="flex items-center">
               <div>
@@ -142,26 +33,60 @@
             </a>
           </div>
 
-          <!-- Desktop Navigation Links -->
           <div class="hidden md:flex items-center gap-8">
             <a
-              href="#"
+              href="index.html"
               class="link-underline text-sm font-semibold text-stone-700"
               >Home</a
             >
+            <div class="relative group py-2 -my-2">
+              <a
+                href="#"
+                class="link-underline text-sm font-semibold text-stone-700 flex items-center gap-1"
+              >
+                About
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
+              >
+                <a href="#" class="dropdown-item">Why Ignite Brain?</a>
+                <a href="mission-vision.html" class="dropdown-item"
+                  >Our Mission & Vision</a
+                >
+                <a href="whats-new.html" class="dropdown-item">What's New</a>
+                <a href="#" class="dropdown-item">Activities</a>
+                <a href="contact.html" class="dropdown-item">Contact Us</a>
+              </div>
+            </div>
             <a
-              href="#"
+              href="olympiads.html"
               class="link-underline text-sm font-semibold text-stone-700"
-              >About</a
+              >Olympiads</a
             >
             <a
-              href="#"
+              href="ai.html"
               class="link-underline text-sm font-semibold text-stone-700"
-              >Courses</a
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Coding</a
             >
           </div>
 
-          <!-- Desktop Action Buttons -->
           <div class="hidden md:flex items-center">
             <a
               href="auth.html"
@@ -171,7 +96,6 @@
             </a>
           </div>
 
-          <!-- Mobile Menu Button (Hamburger) -->
           <div class="md:hidden">
             <button
               id="mobile-menu-button"
@@ -196,7 +120,6 @@
           </div>
         </div>
 
-        <!-- Mobile Menu, hidden by default -->
         <div id="mobile-menu" class="hidden md:hidden mt-2">
           <div
             class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-black/5"
@@ -206,15 +129,78 @@
               class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
               >Home</a
             >
+
+            <div>
+              <button
+                id="mobile-about-button"
+                class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >
+                <span>About</span>
+                <svg
+                  id="mobile-about-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                id="mobile-about-submenu"
+                class="hidden pl-6 pr-2 pt-1 pb-2 space-y-1"
+              >
+                <a
+                  href="#"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Why Ignite Brain?</a
+                >
+                <a
+                  href="mission-vision.html"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Our Mission & Vision</a
+                >
+                <a
+                  href="whats-new.html"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >What's New</a
+                >
+                <a
+                  href="#"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Activities</a
+                >
+                <a
+                  href="contact.html"
+                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                  >Contact Us</a
+                >
+              </div>
+            </div>
+
             <a
-              href="#"
+              href="Olympiads.html"
               class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
-              >About</a
+              >Olympiads</a
             >
             <a
-              href="#"
+              href="ai.html"
               class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
-              >Courses</a
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Coding</a
+            >
+            <a
+              href="robotics.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Robotics</a
             >
             <hr class="border-stone-200 my-2" />
             <a
@@ -228,25 +214,46 @@
     </header>
 
     <main class="overflow-x-hidden">
-      <!-- Hero Section -->
-      <section class="relative pt-40 pb-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- =================================================================== -->
+      <!--                          HERO SECTION                               -->
+      <!-- =================================================================== -->
+      <section
+        class="relative min-h-screen flex items-center pt-20 pb-20 overflow-hidden"
+      >
+        <!-- Video Background -->
+        <div class="absolute inset-0 overflow-hidden -z-10">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+            src="assets/videos/1.mp4"
+          ></video>
+          <!-- Overlay for text readability -->
+          <div class="absolute inset-0 bg-white/90"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <!-- Left Column: Text Content -->
             <div class="text-center md:text-left">
               <h1
                 class="animate-slide-in-up text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-stone-900"
               >
-                <span class="block">Unlock Your Potential.</span>
-                <span class="block text-orange-500">Build The Future.</span>
+                <span class="block">Skills For Tomorrow</span>
+                <span class="block text-orange-500"
+                  >Delivered In Schools Today.</span
+                >
               </h1>
               <p
                 class="mt-6 max-w-lg mx-auto md:mx-0 text-lg text-stone-600 animate-slide-in-up"
-                style="animation-delay: 0.2s"
+                style="animation-delay: 0.2s; text-align: justify"
               >
-                Dive into the world of code, AI, and cybersecurity with
-                project-based courses that make learning feel like play. Start
-                your journey to becoming a tech creator today.
+                Ignite Brain is a next-generation learning initiative designed
+                to empower school students with real-world, future-ready skills
+                — while they are still in school. From Artificial Intelligence
+                and Cybersecurity to Robotics, Programming, and Vedic
+                Mathematics, we offer a complete skill-building ecosystem that
+                runs alongside your school curriculum.
               </p>
               <div
                 class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-slide-in-up"
@@ -267,15 +274,13 @@
               </div>
             </div>
 
-            <!-- Right Column: Visual Element -->
             <div
               class="relative w-full h-80 md:h-full animate-slide-in-up"
               style="animation-delay: 0.3s"
             >
               <div
-                class="absolute inset-0 bg-white/50 backdrop-blur-2xl rounded-3xl ring-1 ring-black/5 p-6 flex items-center justify-center"
+                class="absolute inset-0 bg-white/50 backdrop-blur-2xl rounded-3xl ring-1 ring-black/5 p-4 flex items-center justify-center overflow-hidden"
               >
-                <!-- Floating shapes with new fruity colors -->
                 <div
                   class="absolute top-10 left-10 w-24 h-24 bg-rose-400/50 rounded-full blur-xl animate-float-reverse"
                 ></div>
@@ -286,10 +291,26 @@
                   class="absolute top-1/2 left-1/2 w-32 h-32 bg-orange-400/40 rounded-2xl blur-2xl animate-float"
                   style="transform: translate(-50%, -50%) rotate(45deg)"
                 ></div>
-                <div
-                  class="relative text-stone-800 font-black text-5xl tracking-tighter text-center opacity-20 select-none"
-                >
-                  &lt;CODE/&gt;
+
+                <div id="hero-slideshow" class="relative w-full h-full z-10">
+                  <img
+                    src="assets/images/img1.jpg"
+                    alt="Engaging learning activity"
+                    class="hero-slide active"
+                    onerror="this.onerror=null;this.src='https://placehold.co/500x400/f97316/ffffff?text=Learning+is+Fun';"
+                  />
+                  <img
+                    src="assets/images/img2.jpg"
+                    alt="Student collaborating on a project"
+                    class="hero-slide"
+                    onerror="this.onerror=null;this.src='https://placehold.co/500x400/ec4899/ffffff?text=Build+Together';"
+                  />
+                  <img
+                    src="assets/images/img3.jpg"
+                    alt="A finished robotics project"
+                    class="hero-slide"
+                    onerror="this.onerror=null;this.src='https://placehold.co/500x400/8b5cf6/ffffff?text=Create+Anything';"
+                  />
                 </div>
               </div>
             </div>
@@ -297,7 +318,6 @@
         </div>
       </section>
 
-      <!-- Featured Courses Section -->
       <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
@@ -314,39 +334,59 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Featured Card (Large) -->
+            <!-- Featured Card (Large) -->
+            <!-- Featured Card (Large) -->
+            <!-- Featured Card (Large) -->
             <div
-              class="lg:col-span-1 bg-gradient-to-br from-orange-400 to-rose-500 p-8 rounded-3xl shadow-2xl shadow-orange-500/30 flex flex-col text-white transition-transform duration-300 hover:-translate-y-2"
+              class="lg:col-span-1 bg-gradient-to-br from-orange-400 to-rose-500 rounded-3xl shadow-2xl shadow-orange-500/30 flex flex-col text-white transition-transform duration-300 hover:-translate-y-2 overflow-hidden"
             >
-              <h3 class="text-2xl font-bold tracking-tight">
-                Full-Stack Developer Path
-              </h3>
-              <p class="mt-2 text-orange-100 flex-grow">
-                Go from zero to hero. Learn to build and deploy complete web
-                applications with our guided, project-based curriculum.
-              </p>
-              <a
-                href="#"
-                class="mt-6 inline-flex items-center font-semibold group"
-              >
-                Explore Path
-                <svg
-                  class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  stroke="currentColor"
+              <!-- Top Content with Padding -->
+              <div class="p-8">
+                <h3 class="text-2xl font-bold tracking-tight">
+                  Discover Your Skill Track
+                </h3>
+                <p class="mt-2 text-orange-100" style="text-align: justify">
+                  Personalized learning paths designed to match your interest,
+                  class, and future goals. Choose a track or let our AI
+                  dashboard recommend the best fit for you.
+                </p>
+              </div>
+
+              <!-- Video and Link Container -->
+              <div class="flex-grow mt-auto relative">
+                <video
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  src="assets/videos/2.mp4"
+                  class="absolute inset-0 w-full h-full object-cover"
+                ></video>
+
+                <!-- The link is positioned on top of the video -->
+                <a
+                  href="#"
+                  class="absolute bottom-8 left-8 inline-flex items-center font-semibold group bg-black/20 backdrop-blur-sm text-white py-2 px-4 rounded-full transition-colors hover:bg-black/40 z-10"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </a>
+                  Explore Path
+                  <svg
+                    class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
 
-            <!-- Regular Cards Grid -->
             <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div
                 class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
@@ -370,7 +410,7 @@
                   </svg>
                 </div>
                 <h3 class="mt-4 text-xl font-bold text-stone-800">
-                  AI & Machine Learning
+                  Creative Coders (Scratch + PictoBlox)
                 </h3>
                 <p class="mt-1 text-stone-600">
                   Build intelligent apps and uncover data-driven insights.
@@ -398,7 +438,7 @@
                   </svg>
                 </div>
                 <h3 class="mt-4 text-xl font-bold text-stone-800">
-                  Cybersecurity
+                  Cyber Safety Champion
                 </h3>
                 <p class="mt-1 text-stone-600">
                   Learn to protect data and become a digital defender.
@@ -426,10 +466,10 @@
                   </svg>
                 </div>
                 <h3 class="mt-4 text-xl font-bold text-stone-800">
-                  Game Development
+                  Data & Logic Builders
                 </h3>
                 <p class="mt-1 text-stone-600">
-                  Bring your own interactive worlds and stories to life.
+                  Make efficient system and logic building.
                 </p>
               </div>
               <div
@@ -454,10 +494,10 @@
                   </svg>
                 </div>
                 <h3 class="mt-4 text-xl font-bold text-stone-800">
-                  Creative Coding
+                  AI & Robotics Explorer
                 </h3>
                 <p class="mt-1 text-stone-600">
-                  Create generative art and stunning visual effects with code.
+                  Step into world of robotics with power of AI.
                 </p>
               </div>
             </div>
@@ -465,8 +505,7 @@
         </div>
       </section>
 
-      <!-- Social Proof Section -->
-      <section id="stats-section" class="py-20 bg-stone-100">
+      <section id="stats-section" class="py-20 bg-fruit-nut">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center">
             <h2
@@ -588,7 +627,7 @@
                 class="mt-4 text-4xl font-extrabold text-indigo-600"
                 data-target="4.9"
               >
-                0.0
+                4.5
               </p>
               <p class="text-sm font-medium text-stone-600">Average Rating</p>
             </div>
@@ -596,129 +635,145 @@
         </div>
       </section>
 
-      <!-- Learning Outcomes Section -->
-      <section class="py-20">
+      <section class="py-20 bg-platinum">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2
-                class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
-              >
-                Core Skills You'll Master
-              </h2>
-              <p class="mt-4 text-lg text-stone-600">
-                Our curriculum isn't just about learning to code. It's about
-                developing a new way of thinking. We focus on the foundational
-                skills that empower students to become confident
-                problem-solvers, creators, and innovators in any field.
-              </p>
-              <a
-                href="#"
-                class="mt-6 inline-block rounded-lg bg-orange-500 px-6 py-3 text-center font-semibold text-white hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/20"
-              >
-                Learn About Our Method
-              </a>
-            </div>
-            <div class="grid grid-cols-2 gap-6">
-              <div
-                class="bg-white/60 p-6 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 text-center transition-transform duration-300 hover:-translate-y-2"
-              >
-                <div
-                  class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 text-rose-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
+          <div
+            id="creator-toolkit-slideshow"
+            class="bg-white/60 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 overflow-hidden"
+          >
+            <div class="slide">
+              <div class="grid grid-cols-1 md:grid-cols-2 items-center h-full">
+                <div class="p-8 md:p-12">
+                  <h2
+                    class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.871 4.871a2.25 2.25 0 013.182 0l1.887 1.887a2.25 2.25 0 010 3.182l-1.887 1.887a2.25 2.25 0 01-3.182 0l-1.887-1.887a2.25 2.25 0 010-3.182l1.887-1.887zM17.129 17.129a2.25 2.25 0 01-3.182 0l-1.887-1.887a2.25 2.25 0 010-3.182l1.887-1.887a2.25 2.25 0 013.182 0l1.887 1.887a2.25 2.25 0 010 3.182l-1.887 1.887z"
-                    />
-                  </svg>
-                </div>
-                <h3 class="mt-4 font-bold text-stone-800">Logic</h3>
-              </div>
-              <div
-                class="bg-white/60 p-6 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 text-center transition-transform duration-300 hover:-translate-y-2"
-              >
-                <div
-                  class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 text-yellow-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
+                    The Creator's Toolkit
+                  </h2>
+                  <p class="mt-4 text-lg text-stone-600">
+                    Get hands-on with our DIY robotics and AI kits. Learn by
+                    building, tinkering, and bringing your wildest ideas to
+                    life. It's not just theory—it's fun!
+                  </p>
+                  <a
+                    href="#"
+                    class="mt-8 inline-block rounded-lg bg-indigo-600 px-8 py-3 text-center font-semibold text-white hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/20"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75"
-                    />
-                  </svg>
+                    Get Your Kit
+                  </a>
                 </div>
-                <h3 class="mt-4 font-bold text-stone-800">Structure</h3>
-              </div>
-              <div
-                class="bg-white/60 p-6 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 text-center transition-transform duration-300 hover:-translate-y-2"
-              >
-                <div
-                  class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 text-orange-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.311a7.5 7.5 0 01-7.5 0c-1.421 0-2.8 0-4.125 0a1.875 1.875 0 01-1.875-1.875v-1.875a3.375 3.375 0 013.375-3.375h9.75a3.375 3.375 0 013.375 3.375v1.875a1.875 1.875 0 01-1.875 1.875z"
-                    />
-                  </svg>
+                <div class="relative h-64 md:h-full">
+                  <img
+                    src="https://placehold.co/600x500/fed7aa/44403c?text=Robotics+Kit"
+                    alt="A student holding a robotics kit"
+                    class="w-full h-full object-cover"
+                  />
                 </div>
-                <h3 class="mt-4 font-bold text-stone-800">Creative Thinking</h3>
-              </div>
-              <div
-                class="bg-white/60 p-6 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 text-center transition-transform duration-300 hover:-translate-y-2"
-              >
-                <div
-                  class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 text-indigo-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"
-                    />
-                  </svg>
-                </div>
-                <h3 class="mt-4 font-bold text-stone-800">Problem Solving</h3>
               </div>
             </div>
+
+            <div class="slide">
+              <div class="grid grid-cols-1 md:grid-cols-2 items-center h-full">
+                <div class="p-8 md:p-12">
+                  <h2
+                    class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+                  >
+                    Interactive Coding Arena
+                  </h2>
+                  <p class="mt-4 text-lg text-stone-600">
+                    Learn and practice in our browser-based coding environment.
+                    Tackle challenges, get instant feedback, and see your code
+                    come to life.
+                  </p>
+                  <a
+                    href="#"
+                    class="mt-8 inline-block rounded-lg bg-rose-600 px-8 py-3 text-center font-semibold text-white hover:bg-rose-700 transition-all shadow-lg shadow-rose-500/20"
+                  >
+                    Start Coding
+                  </a>
+                </div>
+                <div class="relative h-64 md:h-full">
+                  <img
+                    src="https://placehold.co/600x500/fecdd3/44403c?text=Coding+Arena"
+                    alt="An interactive coding environment"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="grid grid-cols-1 md:grid-cols-2 items-center h-full">
+                <div class="p-8 md:p-12">
+                  <h2
+                    class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+                  >
+                    Community Project Hub
+                  </h2>
+                  <p class="mt-4 text-lg text-stone-600">
+                    Collaborate with fellow learners, showcase your projects,
+                    and get inspired by what others are building in our vibrant
+                    community hub.
+                  </p>
+                  <a
+                    href="#"
+                    class="mt-8 inline-block rounded-lg bg-yellow-500 px-8 py-3 text-center font-semibold text-white hover:bg-yellow-600 transition-all shadow-lg shadow-yellow-500/20"
+                  >
+                    Explore Projects
+                  </a>
+                </div>
+                <div class="relative h-64 md:h-full">
+                  <img
+                    src="https://placehold.co/600x500/fde68a/44403c?text=Community+Hub"
+                    alt="A gallery of student projects"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button
+              id="prev-slide"
+              class="absolute top-1/2 left-4 -translate-y-1/2 z-10 bg-white/50 hover:bg-white/80 transition-colors rounded-full w-12 h-12 flex items-center justify-center text-stone-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              id="next-slide"
+              class="absolute top-1/2 right-4 -translate-y-1/2 z-10 bg-white/50 hover:bg-white/80 transition-colors rounded-full w-12 h-12 flex items-center justify-center text-stone-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- Learning Tree Section -->
-      <section class="py-20 bg-stone-100">
+      <section id="learning-tree-section" class="py-20 bg-fruit-nut">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
             <h2
@@ -732,164 +787,546 @@
             </p>
           </div>
 
-          <div class="relative">
-            <div
-              class="absolute left-1/2 -ml-0.5 w-1 h-full bg-stone-300 rounded-full"
-              aria-hidden="true"
-            ></div>
-            <div class="space-y-12">
-              <div class="relative flex justify-center">
-                <div
-                  class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white ring-8 ring-stone-100"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div class="relative flex items-center">
-                <div class="w-1/2 pr-8 text-right">
+          <div>
+            <div class="relative">
+              <div
+                class="timeline-line absolute left-1/2 -ml-0.5 w-1 h-full bg-yellow-400 rounded-full"
+                aria-hidden="true"
+              ></div>
+              <div class="space-y-12">
+                <div class="relative flex justify-center">
                   <div
-                    class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
+                    class="timeline-node w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center text-white ring-8 ring-[#FFF8E1]"
                   >
-                    <p class="text-sm font-semibold text-orange-600">Phase 1</p>
-                    <h3 class="text-xl font-bold text-stone-800">
-                      Sprouting Ideas
-                    </h3>
-                    <p class="mt-1 text-stone-600">
-                      Grasp the fundamentals of logic and how to speak the
-                      language of computers.
-                    </p>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-8 w-8"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                      />
+                    </svg>
                   </div>
                 </div>
-                <div class="w-1/2 pl-8"></div>
-                <div
-                  class="absolute left-1/2 -ml-4 w-8 h-8 rounded-full bg-stone-100 border-4 border-stone-300"
-                ></div>
-              </div>
-              <div class="relative flex items-center">
-                <div class="w-1/2 pr-8"></div>
-                <div class="w-1/2 pl-8 text-left">
-                  <div
-                    class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
-                  >
-                    <p class="text-sm font-semibold text-rose-600">Phase 2</p>
-                    <h3 class="text-xl font-bold text-stone-800">
-                      Growing Stronger
-                    </h3>
-                    <p class="mt-1 text-stone-600">
-                      Apply your knowledge to build tangible projects, from
-                      simple websites to interactive games.
-                    </p>
+                <div class="relative flex items-center">
+                  <div class="w-1/2 pr-8 text-right">
+                    <div
+                      class="timeline-card p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+                    >
+                      <p class="text-sm font-semibold text-orange-600">
+                        Phase 1
+                      </p>
+                      <h3 class="text-xl font-bold text-stone-800">
+                        Sprouting Ideas
+                      </h3>
+                      <p class="mt-1 text-stone-600">
+                        Grasp the fundamentals of logic and how to speak the
+                        language of computers.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="absolute left-1/2 -ml-4 w-8 h-8 rounded-full bg-stone-100 border-4 border-stone-300"
-                ></div>
-              </div>
-              <div class="relative flex items-center">
-                <div class="w-1/2 pr-8 text-right">
+                  <div class="w-1/2 pl-8"></div>
                   <div
-                    class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl"
-                  >
-                    <p class="text-sm font-semibold text-indigo-600">Phase 3</p>
-                    <h3 class="text-xl font-bold text-stone-800">
-                      Branching Out
-                    </h3>
-                    <p class="mt-1 text-stone-600">
-                      Explore advanced topics like AI, data science, or
-                      cybersecurity to find your passion.
-                    </p>
+                    class="timeline-node absolute left-1/2 -ml-4 w-8 h-8 rounded-full bg-[#FFF8E1] border-4 border-yellow-400"
+                  ></div>
+                </div>
+                <div class="relative flex items-center">
+                  <div class="w-1/2 pr-8"></div>
+                  <div class="w-1/2 pl-8 text-left">
+                    <div
+                      class="timeline-card p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+                    >
+                      <p class="text-sm font-semibold text-rose-600">Phase 2</p>
+                      <h3 class="text-xl font-bold text-stone-800">
+                        Growing Stronger
+                      </h3>
+                      <p class="mt-1 text-stone-600">
+                        Apply your knowledge to build tangible projects, from
+                        simple websites to interactive games.
+                      </p>
+                    </div>
                   </div>
+                  <div
+                    class="timeline-node absolute left-1/2 -ml-4 w-8 h-8 rounded-full bg-[#FFF8E1] border-4 border-yellow-400"
+                  ></div>
                 </div>
-                <div class="w-1/2 pl-8"></div>
-                <div
-                  class="absolute left-1/2 -ml-4 w-8 h-8 rounded-full bg-stone-100 border-4 border-stone-300"
-                ></div>
-              </div>
-              <div class="relative flex justify-center pt-8">
-                <div
-                  class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white ring-8 ring-stone-100"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
-                    />
-                  </svg>
+                <div class="relative flex items-center">
+                  <div class="w-1/2 pr-8 text-right">
+                    <div
+                      class="timeline-card p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+                    >
+                      <p class="text-sm font-semibold text-indigo-600">
+                        Phase 3
+                      </p>
+                      <h3 class="text-xl font-bold text-stone-800">
+                        Branching Out
+                      </h3>
+                      <p class="mt-1 text-stone-600">
+                        Explore advanced topics like AI, data science, or
+                        cybersecurity to find your passion.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="w-1/2 pl-8"></div>
+                  <div
+                    class="timeline-node absolute left-1/2 -ml-4 w-8 h-8 rounded-full bg-[#FFF8E1] border-4 border-yellow-400"
+                  ></div>
                 </div>
-              </div>
-              <div class="relative text-center -mt-8">
-                <h3 class="text-xl font-bold text-green-600">
-                  Become a Creator
-                </h3>
-                <p class="text-stone-600">
-                  Launch your own projects and join a community of innovators.
-                </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Creator's Toolkit Section -->
-      <section class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            class="bg-white/60 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 overflow-hidden"
-          >
-            <div class="grid grid-cols-1 md:grid-cols-2 items-center">
-              <div class="p-8 md:p-12">
-                <h2
-                  class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+            <div class="relative flex justify-center pt-12">
+              <div
+                class="timeline-node w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white ring-8 ring-[#FFF8E1]"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
                 >
-                  The Creator's Toolkit
-                </h2>
-                <p class="mt-4 text-lg text-stone-600">
-                  Get hands-on with our DIY robotics and AI kits. Learn by
-                  building, tinkering, and bringing your wildest ideas to life.
-                  It's not just theory—it's fun!
-                </p>
-                <a
-                  href="#"
-                  class="mt-8 inline-block rounded-lg bg-indigo-600 px-8 py-3 text-center font-semibold text-white hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/20"
-                >
-                  Get Your Kit
-                </a>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
+                  />
+                </svg>
               </div>
-              <div class="relative h-64 md:h-full">
-                <img
-                  src="https://placehold.co/600x500/fed7aa/44403c?text=Robotics+Kit"
-                  alt="A student holding a robotics kit"
-                  class="w-full h-full object-cover"
-                />
-              </div>
+            </div>
+            <div class="timeline-card text-center mt-4">
+              <h3 class="text-xl font-bold text-green-600">Become a Creator</h3>
+              <p class="text-stone-600">
+                Launch your own projects and join a community of innovators.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- Why Choose Us Section -->
-      <section class="py-20 bg-stone-100">
+      <!-- Why Choose Us Section -->
+      <section class="py-20 bg-platinum">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <h2
+              class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+            >
+              The Ignite Brain Difference
+            </h2>
+            <p class="mt-3 max-w-2xl mx-auto text-lg text-stone-600">
+              We're not just another coding class. We're a launchpad for future
+              innovators.
+            </p>
+          </div>
+        </div>
+
+        <div id="scrolling-wrapper" class="mt-12">
+          <div id="scrolling-content">
+            <!-- Card Set 1 -->
+            <div class="scrolling-card">
+              <div
+                class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-orange-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-stone-800">
+                Project-Based Learning
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Learn by creating real things. Our hands-on approach ensures you
+                build a portfolio of projects you're proud of.
+              </p>
+            </div>
+            <div class="scrolling-card">
+              <div
+                class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-rose-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-stone-800">
+                Expert Mentorship
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Get guidance and support from industry professionals who are
+                passionate about sharing their knowledge.
+              </p>
+            </div>
+            <div class="scrolling-card">
+              <div
+                class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-indigo-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0118 18a8 8 0 01-2.343.657z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-stone-800">
+                Future-Ready Skills
+              </h3>
+              <p class="mt-2 text-stone-600">
+                We teach the technologies that are shaping tomorrow, ensuring
+                you're prepared for the future of work.
+              </p>
+            </div>
+            <!-- Card Set 2 (Duplicates) -->
+            <div class="scrolling-card">
+              <div
+                class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-orange-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-stone-800">
+                Project-Based Learning
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Learn by creating real things. Our hands-on approach ensures you
+                build a portfolio of projects you're proud of.
+              </p>
+            </div>
+            <div class="scrolling-card">
+              <div
+                class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-rose-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-stone-800">
+                Expert Mentorship
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Get guidance and support from industry professionals who are
+                passionate about sharing their knowledge.
+              </p>
+            </div>
+            <div class="scrolling-card">
+              <div
+                class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8 text-indigo-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.657 7.343A8 8 0 0118 18a8 8 0 01-2.343.657z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                  />
+                </svg>
+              </div>
+              <h3 class="mt-6 text-xl font-bold text-stone-800">
+                Future-Ready Skills
+              </h3>
+              <p class="mt-2 text-stone-600">
+                We teach the technologies that are shaping tomorrow, ensuring
+                you're prepared for the future of work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 bg-fruit-nut">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2
+              class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+            >
+              What Our Community is Saying
+            </h2>
+            <p class="mt-3 max-w-2xl mx-auto text-lg text-stone-600">
+              Real stories from students and parents who love to learn with us.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-white/60 p-8 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <div class="flex items-center mb-4">
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+              </div>
+              <blockquote class="mt-2 text-stone-600">
+                "I never thought coding could be this much fun! I built my own
+                game and showed it to all my friends. The teachers are super
+                helpful."
+              </blockquote>
+              <figcaption class="mt-4 flex items-center">
+                <img
+                  class="h-12 w-12 rounded-full object-cover"
+                  src="https://placehold.co/100x100/E9D5FF/44403c?text=AK"
+                  alt="Avatar of Anika K."
+                />
+                <div class="ml-4">
+                  <div class="font-bold text-stone-800">Anika K.</div>
+                  <div class="text-sm text-stone-600">Student, Age 14</div>
+                </div>
+              </figcaption>
+            </div>
+            <div
+              class="bg-white/60 p-8 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <div class="flex items-center mb-4">
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+              </div>
+              <blockquote class="mt-2 text-stone-600">
+                "My son's confidence has soared since he started with Ignite
+                Brain. He's not just consuming technology, he's creating it.
+                Highly recommended."
+              </blockquote>
+              <figcaption class="mt-4 flex items-center">
+                <img
+                  class="h-12 w-12 rounded-full object-cover"
+                  src="https://placehold.co/100x100/A5F3FC/44403c?text=RS"
+                  alt="Avatar of Rohan S."
+                />
+                <div class="ml-4">
+                  <div class="font-bold text-stone-800">Rohan S.</div>
+                  <div class="text-sm text-stone-600">Parent</div>
+                </div>
+              </figcaption>
+            </div>
+            <div
+              class="bg-white/60 p-8 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <div class="flex items-center mb-4">
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+                <svg
+                  class="w-5 h-5 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  ></path>
+                </svg>
+              </div>
+              <blockquote class="mt-2 text-stone-600">
+                "As a teacher, I'm always looking for quality resources. The
+                curriculum is well-structured and the platform is incredibly
+                easy to use in my classroom."
+              </blockquote>
+              <figcaption class="mt-4 flex items-center">
+                <img
+                  class="h-12 w-12 rounded-full object-cover"
+                  src="https://placehold.co/100x100/DDD6FE/44403c?text=MP"
+                  alt="Avatar of Mrs. Patel"
+                />
+                <div class="ml-4">
+                  <div class="font-bold text-stone-800">Mrs. Patel</div>
+                  <div class="text-sm text-stone-600">7th Grade Teacher</div>
+                </div>
+              </figcaption>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 bg-platinum">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center">
             <h2
@@ -999,8 +1436,7 @@
         </div>
       </section>
 
-      <!-- FAQ Section -->
-      <section class="py-20">
+      <section class="py-20 bg-fruit-nut">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-12">
             <h2
@@ -1009,12 +1445,11 @@
               Frequently Asked Questions
             </h2>
           </div>
-          <div class="space-y-4">
-            <div
-              class="bg-white/60 p-6 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
-            >
-              <div class="faq-question flex justify-between items-center">
-                <h3 class="font-semibold text-lg text-stone-800">
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                <span class="faq-number">01</span>
+                <h3 class="flex-1 text-lg font-semibold text-stone-800">
                   Who are the courses for?
                 </h3>
                 <div class="icon w-6 h-6 text-orange-600">
@@ -1034,7 +1469,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="faq-answer mt-2 text-stone-600">
+              <div class="faq-answer">
                 <p>
                   Our courses are designed for students aged 8-18, from absolute
                   beginners with no prior experience to intermediate learners
@@ -1042,11 +1477,11 @@
                 </p>
               </div>
             </div>
-            <div
-              class="bg-white/60 p-6 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
-            >
-              <div class="faq-question flex justify-between items-center">
-                <h3 class="font-semibold text-lg text-stone-800">
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span class="faq-number">02</span>
+                <h3 class="flex-1 text-lg font-semibold text-stone-800">
                   What do I need to get started?
                 </h3>
                 <div class="icon w-6 h-6 text-orange-600">
@@ -1066,7 +1501,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="faq-answer mt-2 text-stone-600">
+              <div class="faq-answer">
                 <p>
                   Just a computer with an internet connection! All our software
                   is browser-based, so there are no complicated installations.
@@ -1075,11 +1510,11 @@
                 </p>
               </div>
             </div>
-            <div
-              class="bg-white/60 p-6 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
-            >
-              <div class="faq-question flex justify-between items-center">
-                <h3 class="font-semibold text-lg text-stone-800">
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span class="faq-number">03</span>
+                <h3 class="flex-1 text-lg font-semibold text-stone-800">
                   Can I cancel my subscription?
                 </h3>
                 <div class="icon w-6 h-6 text-orange-600">
@@ -1099,7 +1534,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="faq-answer mt-2 text-stone-600">
+              <div class="faq-answer">
                 <p>
                   Yes, you can cancel your subscription at any time, no
                   questions asked. You'll retain access to your courses until
@@ -1111,8 +1546,7 @@
         </div>
       </section>
 
-      <!-- Final CTA Section -->
-      <section class="py-20">
+      <section class="py-20 bg-platinum">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
@@ -1133,8 +1567,7 @@
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-stone-100">
+    <footer class="bg-fruit-nut">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div class="col-span-2 md:col-span-1">
@@ -1285,83 +1718,12 @@
             </a>
           </div>
           <p class="mt-8 text-base text-stone-500 md:mt-0 md:order-1">
-            &copy; 2024 Ignite Brain. All rights reserved.
+            &copy; 2025 Ignite Brain. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
-    <script>
-      // JavaScript to toggle the mobile menu
-      const mobileMenuButton = document.getElementById("mobile-menu-button");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      // JavaScript for animated counters
-      document.addEventListener("DOMContentLoaded", () => {
-        const counters = document.querySelectorAll(
-          "#stats-section [data-target]"
-        );
-        const speed = 200; // The lower the #, the faster the count
-
-        const animateCounter = (counter) => {
-          const target = +counter.getAttribute("data-target");
-          const updateCount = () => {
-            const count = +counter.innerText;
-            const increment = target / speed;
-
-            if (count < target) {
-              const newCount = count + increment;
-              // Handle float vs integer counting
-              if (target % 1 !== 0) {
-                counter.innerText = newCount.toFixed(1);
-              } else {
-                counter.innerText = Math.ceil(newCount);
-              }
-              setTimeout(updateCount, 15);
-            } else {
-              counter.innerText = target;
-            }
-          };
-          updateCount();
-        };
-
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const counter = entry.target;
-                animateCounter(counter);
-                observer.unobserve(counter); // Animate only once
-              }
-            });
-          },
-          { threshold: 0.5 }
-        );
-
-        counters.forEach((counter) => {
-          observer.observe(counter);
-        });
-
-        // JavaScript for FAQ Accordion
-        const faqQuestions = document.querySelectorAll(".faq-question");
-        faqQuestions.forEach((question) => {
-          question.addEventListener("click", () => {
-            // Close other open questions
-            faqQuestions.forEach((otherQuestion) => {
-              if (otherQuestion !== question) {
-                otherQuestion.classList.remove("active");
-              }
-            });
-            // Toggle the clicked question
-            question.classList.toggle("active");
-          });
-        });
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

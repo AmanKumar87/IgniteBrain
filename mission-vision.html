@@ -24,9 +24,8 @@
     <header class="fixed inset-x-0 top-4 z-50">
       <nav class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
-          class="flex items-center justify-between px-6 py-3 bg-white/95 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-black/5"
+          class="flex items-center justify-between px-6 py-3 bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-black/5"
         >
-          <!-- Logo Section -->
           <div class="flex-shrink-0">
             <a href="index.html" class="flex items-center">
               <div>
@@ -40,7 +39,6 @@
             </a>
           </div>
 
-          <!-- Desktop Navigation Links -->
           <div class="hidden md:flex items-center gap-8">
             <a
               href="index.html"
@@ -69,7 +67,9 @@
               <div
                 class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
               >
-                <a href="#" class="dropdown-item">Why Ignite Brain?</a>
+                <a href="why-ignite.html" class="dropdown-item"
+                  >Why Ignite Brain?</a
+                >
                 <a href="mission-vision.html" class="dropdown-item"
                   >Our Mission & Vision</a
                 >
@@ -78,14 +78,56 @@
                 <a href="contact.html" class="dropdown-item">Contact Us</a>
               </div>
             </div>
+            <div class="relative group py-2 -my-2">
+              <a
+                href="#"
+                class="link-underline text-sm font-semibold text-stone-700 flex items-center gap-1"
+              >
+                Olympiads
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
+              >
+                <a href="olympiads.html" class="dropdown-item">All Olympiads</a>
+                <a href="techoly.html" class="dropdown-item">Tech Olympiad</a>
+                <a href="vedmatholy.html" class="dropdown-item"
+                  >Vedic Maths Olympiad</a
+                >
+                <a href="paintoly.html" class="dropdown-item"
+                  >Painting Olympiad</a
+                >
+                <a href="cyberoly.html" class="dropdown-item">Cyber Olympiad</a>
+              </div>
+            </div>
             <a
-              href="#"
+              href="ai.html"
               class="link-underline text-sm font-semibold text-stone-700"
-              >Courses</a
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Coding</a
+            >
+            <a
+              href="blogs.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Blogs</a
             >
           </div>
 
-          <!-- Desktop Action Buttons -->
           <div class="hidden md:flex items-center">
             <a
               href="auth.html"
@@ -95,7 +137,6 @@
             </a>
           </div>
 
-          <!-- Mobile Menu Button (Hamburger) -->
           <div class="md:hidden">
             <button
               id="mobile-menu-button"
@@ -120,7 +161,6 @@
           </div>
         </div>
 
-        <!-- Mobile Menu, hidden by default -->
         <div id="mobile-menu" class="hidden md:hidden mt-2">
           <div
             class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-black/5"
@@ -130,14 +170,14 @@
               class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
               >Home</a
             >
+
             <div>
               <button
-                id="mobile-about-button"
+                data-accordion-button
                 class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
               >
                 <span>About</span>
                 <svg
-                  id="mobile-about-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5 transition-transform duration-300"
                   viewBox="0 0 20 20"
@@ -150,41 +190,106 @@
                   />
                 </svg>
               </button>
-              <div
-                id="mobile-about-submenu"
-                class="hidden pl-6 pr-2 pt-1 pb-2 space-y-1"
-              >
-                <a
-                  href="#"
-                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
-                  >Why Ignite Brain?</a
-                >
-                <a
-                  href="mission-vision.html"
-                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
-                  >Our Mission & Vision</a
-                >
-                <a
-                  href="whats-new.html"
-                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
-                  >What's New</a
-                >
-                <a
-                  href="#"
-                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
-                  >Activities</a
-                >
-                <a
-                  href="contact.html"
-                  class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
-                  >Contact Us</a
-                >
+              <div class="mobile-submenu">
+                <div class="pl-6 pr-2 pt-1 pb-2 space-y-1">
+                  <a
+                    href="why-ignite.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Why Ignite Brain?</a
+                  >
+                  <a
+                    href="mission-vision.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Our Mission & Vision</a
+                  >
+                  <a
+                    href="whats-new.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >What's New</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Activities</a
+                  >
+                  <a
+                    href="contact.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Contact Us</a
+                  >
+                </div>
               </div>
             </div>
+
+            <div>
+              <button
+                data-accordion-button
+                class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >
+                <span>Olympiads</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div class="mobile-submenu">
+                <div class="pl-6 pr-2 pt-1 pb-2 space-y-1">
+                  <a
+                    href="olympiads.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >All Olympiads</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Tech Olympiad</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Vedic Maths Olympiad</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Painting Olympiad</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Cyber Olympiad</a
+                  >
+                </div>
+              </div>
+            </div>
+
             <a
-              href="#"
+              href="ai.html"
               class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
-              >Courses</a
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Coding</a
+            >
+            <a
+              href="robotics.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Robotics</a
+            >
+            <a
+              href="blogs.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Blogs</a
             >
             <hr class="border-stone-200 my-2" />
             <a

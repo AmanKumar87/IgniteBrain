@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vedic Maths Olympiad - Ignite Brain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="gradient-bg-light text-stone-800">
+    <header class="fixed inset-x-0 top-4 z-50">
+      <nav class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex items-center justify-between px-6 py-3 bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-black/5"
+        >
+          <div class="flex-shrink-0">
+            <a href="index.html" class="flex items-center">
+              <div>
+                <span class="text-xl font-bold text-stone-900 tracking-tighter"
+                  >IGNITE BRAIN</span
+                >
+                <span class="block text-xs font-medium text-stone-500 -mt-1"
+                  >by CSE PATHSHALA</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="index.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Home</a
+            >
+            <div class="relative group py-2 -my-2">
+              <a
+                href="#"
+                class="link-underline text-sm font-semibold text-stone-700 flex items-center gap-1"
+              >
+                About
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
+              >
+                <a href="why-ignite.html" class="dropdown-item"
+                  >Why Ignite Brain?</a
+                >
+                <a href="mission-vision.html" class="dropdown-item"
+                  >Our Mission & Vision</a
+                >
+                <a href="whats-new.html" class="dropdown-item">What's New</a>
+                <a href="#" class="dropdown-item">Activities</a>
+                <a href="contact.html" class="dropdown-item">Contact Us</a>
+              </div>
+            </div>
+            <div class="relative group py-2 -my-2">
+              <a
+                href="#"
+                class="link-underline text-sm font-semibold text-stone-700 flex items-center gap-1"
+              >
+                Olympiads
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
+              >
+                <a href="olympiads.html" class="dropdown-item">All Olympiads</a>
+                <a href="techoly.html" class="dropdown-item">Tech Olympiad</a>
+                <a href="vedmatholy.html" class="dropdown-item"
+                  >Vedic Maths Olympiad</a
+                >
+                <a href="paintoly.html" class="dropdown-item"
+                  >Painting Olympiad</a
+                >
+                <a href="cyberoly.html" class="dropdown-item">Cyber Olympiad</a>
+              </div>
+            </div>
+            <a
+              href="ai.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Coding</a
+            >
+            <a
+              href="blogs.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Blogs</a
+            >
+          </div>
+
+          <div class="hidden md:flex items-center">
+            <a
+              href="auth.html"
+              class="group inline-flex items-center justify-center rounded-lg bg-orange-500 text-white px-5 py-2.5 text-sm font-semibold hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/20"
+            >
+              Login / Sign Up
+            </a>
+          </div>
+
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 text-stone-700 rounded-md hover:bg-stone-100 hover:text-stone-900"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-2">
+          <div
+            class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-black/5"
+          >
+            <a
+              href="index.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Home</a
+            >
+
+            <div>
+              <button
+                data-accordion-button
+                class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >
+                <span>About</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div class="mobile-submenu">
+                <div class="pl-6 pr-2 pt-1 pb-2 space-y-1">
+                  <a
+                    href="why-ignite.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Why Ignite Brain?</a
+                  >
+                  <a
+                    href="mission-vision.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Our Mission & Vision</a
+                  >
+                  <a
+                    href="whats-new.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >What's New</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Activities</a
+                  >
+                  <a
+                    href="contact.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Contact Us</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button
+                data-accordion-button
+                class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >
+                <span>Olympiads</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div class="mobile-submenu">
+                <div class="pl-6 pr-2 pt-1 pb-2 space-y-1">
+                  <a
+                    href="olympiads.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >All Olympiads</a
+                  >
+                  <a
+                    href="techoly.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Tech Olympiad</a
+                  >
+                  <a
+                    href="vedmatholy.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Vedic Maths Olympiad</a
+                  >
+                  <a
+                    href="paintoly.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Painting Olympiad</a
+                  >
+                  <a
+                    href="cyberoly.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Cyber Olympiad</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="ai.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Coding</a
+            >
+            <a
+              href="robotics.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Robotics</a
+            >
+            <a
+              href="blogs.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Blogs</a
+            >
+            <hr class="border-stone-200 my-2" />
+            <a
+              href="auth.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-white bg-orange-500"
+              >Login / Sign Up</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="overflow-x-hidden">
+      <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 bg-fruit-nut">
+        <div
+          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        >
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-stone-900"
+          >
+            <span class="block">Vedic Maths Olympiad</span>
+            <span class="block text-rose-600"
+              >Calculate at the Speed of Thought</span
+            >
+          </h1>
+          <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-stone-600">
+            Rediscover the ancient art of high-speed mental calculation. This
+            Olympiad challenges students to solve complex problems with
+            astonishing speed and accuracy using powerful Vedic sutras.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#"
+              class="inline-block rounded-lg bg-orange-500 px-8 py-3 text-center font-semibold text-white hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/20"
+            >
+              Register for 2025
+            </a>
+            <a
+              href="#syllabus"
+              class="inline-block rounded-lg ring-2 ring-stone-300 px-8 py-3 text-center font-semibold text-stone-700 hover:bg-stone-100 transition-all"
+            >
+              View Syllabus
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <hr
+          class="h-0.5 bg-stone-300/70 border-none"
+          style="background-color: #f97316; height: 0.3rem; border-radius: 50%"
+        />
+      </div>
+
+      <section class="py-20 bg-platinum">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div
+              class="relative w-full h-80 md:h-96 rounded-3xl overflow-hidden shadow-xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1635070045095-23315a6157a9?q=80&w=1887&auto=format&fit=crop"
+                alt="Abstract mathematical patterns"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <h2
+                class="text-3xl font-extrabold tracking-tighter text-stone-900"
+              >
+                What is the Vedic Maths Olympiad?
+              </h2>
+              <p class="mt-4 text-lg text-stone-600">
+                Vedic Mathematics is a unique system of calculation based on 16
+                ancient Indian sutras (aphorisms). The Ignite Brain Vedic Maths
+                Olympiad tests a student's ability to apply these powerful
+                techniques to solve arithmetic and algebraic problems quickly
+                and efficiently.
+              </p>
+              <p class="mt-4 text-stone-600">
+                It’s not just about getting the right answer; it's about finding
+                the smartest and fastest way to get there. This competition
+                builds confidence, reduces math anxiety, and sharpens mental
+                agility.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 bg-fruit-nut">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center">
+            <h2
+              class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+            >
+              Why Master Vedic Maths?
+            </h2>
+            <p class="mt-3 max-w-2xl mx-auto text-lg text-stone-600">
+              Develop a love for numbers and gain a competitive edge in your
+              academic journey.
+            </p>
+          </div>
+          <div class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div
+              class="text-center p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <div
+                class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto text-3xl"
+              >
+                🚀
+              </div>
+              <h3 class="mt-5 text-xl font-bold text-stone-800">
+                Boost Calculation Speed
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Solve problems 10-15 times faster than with conventional
+                methods.
+              </p>
+            </div>
+            <div
+              class="text-center p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <div
+                class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mx-auto text-3xl"
+              >
+                🎯
+              </div>
+              <h3 class="mt-5 text-xl font-bold text-stone-800">
+                Improve Accuracy
+              </h3>
+              <p class="mt-2 text-stone-600">
+                The sutras include built-in checking mechanisms to ensure
+                correct answers.
+              </p>
+            </div>
+            <div
+              class="text-center p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <div
+                class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto text-3xl"
+              >
+                💡
+              </div>
+              <h3 class="mt-5 text-xl font-bold text-stone-800">
+                Sharpen Your Mind
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Enhance concentration, memory, and logical reasoning abilities.
+              </p>
+            </div>
+            <div
+              class="text-center p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <div
+                class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto text-3xl"
+              >
+                😊
+              </div>
+              <h3 class="mt-5 text-xl font-bold text-stone-800">
+                Reduce Math Anxiety
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Build confidence and turn a challenging subject into a fun game.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="syllabus" class="py-20 bg-platinum">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2
+              class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+            >
+              Syllabus Overview
+            </h2>
+            <p class="mt-3 max-w-2xl mx-auto text-lg text-stone-600">
+              The competition covers different sutras and their applications
+              across grade levels.
+            </p>
+          </div>
+          <div class="space-y-8">
+            <div
+              class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <h3 class="text-xl font-bold text-rose-600">
+                Primary Level (Classes 1-4)
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Focus on foundational sutras for basic arithmetic operations.
+              </p>
+              <ul class="mt-4 space-y-2 list-disc list-inside text-stone-700">
+                <li>High-Speed Addition & Subtraction</li>
+                <li>Multiplication by 9, 11, etc.</li>
+                <li>Criss-Cross System for Multiplication</li>
+                <li>Base Method for Multiplication</li>
+              </ul>
+            </div>
+            <div
+              class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <h3 class="text-xl font-bold text-rose-600">
+                Middle Level (Classes 5-8)
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Applying sutras to more complex calculations like squares and
+                division.
+              </p>
+              <ul class="mt-4 space-y-2 list-disc list-inside text-stone-700">
+                <li>Squaring of Numbers</li>
+                <li>Finding Cubes and Cube Roots</li>
+                <li>Straight Division (The Flag Method)</li>
+                <li>Solving Simple Equations</li>
+              </ul>
+            </div>
+            <div
+              class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            >
+              <h3 class="text-xl font-bold text-rose-600">
+                Senior Level (Classes 9-12)
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Advanced applications in algebra, geometry, and calculus.
+              </p>
+              <ul class="mt-4 space-y-2 list-disc list-inside text-stone-700">
+                <li>Solving Polynomial & Quadratic Equations</li>
+                <li>Finding Square Roots of Imperfect Squares</li>
+                <li>Applications in Trigonometry</li>
+                <li>Calculus and Divisibility Checks</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <hr
+        class="h-0.5 bg-stone-300/70 border-none"
+        style="background-color: #f97316; height: 0.3rem; border-radius: 50%"
+      />
+    </div>
+    <footer class="bg-fruit-nut">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="col-span-2 md:col-span-1">
+            <a href="#" class="flex items-center">
+              <div>
+                <span class="text-xl font-bold text-stone-900 tracking-tighter"
+                  >IGNITE BRAIN</span
+                >
+                <span class="block text-xs font-medium text-stone-500 -mt-1"
+                  >by CSE PATHSHALA</span
+                >
+              </div>
+            </a>
+            <p class="mt-4 text-sm text-stone-600">
+              Empowering the next generation of creators and innovators.
+            </p>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-stone-900 tracking-wider uppercase"
+            >
+              Solutions
+            </h3>
+            <ul class="mt-4 space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Learning Paths</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Kits</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-stone-900 tracking-wider uppercase"
+            >
+              Company
+            </h3>
+            <ul class="mt-4 space-y-4">
+              <li>
+                <a
+                  href="why-ignite.html"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="blogs.html"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Careers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3
+              class="text-sm font-semibold text-stone-900 tracking-wider uppercase"
+            >
+              Legal
+            </h3>
+            <ul class="mt-4 space-y-4">
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Privacy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-base text-stone-600 hover:text-orange-600"
+                  >Terms</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="mt-8 border-t border-stone-200 pt-8 md:flex md:items-center md:justify-between"
+        >
+          <div class="flex space-x-6 md:order-2">
+            <a href="#" class="text-stone-400 hover:text-stone-500">
+              <span class="sr-only">Facebook</span>
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-stone-400 hover:text-stone-500">
+              <span class="sr-only">Instagram</span>
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.795 2.013 10.148 2 12.315 2zm-1.161 1.545c-2.399 0-2.693.01-3.638.056-.945.045-1.505.2-1.994.377a3.42 3.42 0 00-1.262.824 3.42 3.42 0 00-.824 1.262c-.177.489-.332 1.05-.377 1.994-.046.945-.056 1.239-.056 3.638s.01 2.693.056 3.638c.045.945.2 1.505.377 1.994a3.42 3.42 0 00.824 1.262 3.42 3.42 0 001.262.824c.489.177 1.05.332 1.994.377.945.046 1.239.056 3.638.056s2.693-.01 3.638-.056c.945-.045 1.505-.2 1.994-.377a3.42 3.42 0 001.262-.824 3.42 3.42 0 00.824-1.262c.177-.489.332-1.05.377-1.994.046-.945.056-1.239.056-3.638s-.01-2.693-.056-3.638c-.045-.945-.2-1.505-.377-1.994a3.42 3.42 0 00-.824-1.262 3.42 3.42 0 00-1.262-.824c-.489-.177-1.05-.332-1.994-.377-.945-.046-1.239-.056-3.638-.056zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 1.802a3.333 3.333 0 110 6.666 3.333 3.333 0 010-6.666zm5.338-3.205a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-stone-400 hover:text-stone-500">
+              <span class="sr-only">Twitter</span>
+              <svg
+                class="h-6 w-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                />
+              </svg>
+            </a>
+          </div>
+          <p class="mt-8 text-base text-stone-500 md:mt-0 md:order-1">
+            &copy; 2025 Ignite Brain. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

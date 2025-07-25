@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Ignite Brain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="gradient-bg-light text-stone-800">
+    <!-- HEADER WILL GO HERE - COPY FROM STEP 2 -->
+    <header class="fixed inset-x-0 top-4 z-50">
+      <nav class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex items-center justify-between px-6 py-3 bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-black/5"
+        >
+          <div class="flex-shrink-0">
+            <a href="index.html" class="flex items-center">
+              <div>
+                <span class="text-xl font-bold text-stone-900 tracking-tighter"
+                  >IGNITE BRAIN</span
+                >
+                <span class="block text-xs font-medium text-stone-500 -mt-1"
+                  >by CSE PATHSHALA</span
+                >
+              </div>
+            </a>
+          </div>
+
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="index.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Home</a
+            >
+            <div class="relative group py-2 -my-2">
+              <a
+                href="#"
+                class="link-underline text-sm font-semibold text-stone-700 flex items-center gap-1"
+              >
+                About
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
+              >
+                <a href="why-ignite.html" class="dropdown-item"
+                  >Why Ignite Brain?</a
+                >
+                <a href="mission-vision.html" class="dropdown-item"
+                  >Our Mission & Vision</a
+                >
+                <a href="whats-new.html" class="dropdown-item">What's New</a>
+                <a href="#" class="dropdown-item">Activities</a>
+                <a href="contact.html" class="dropdown-item">Contact Us</a>
+              </div>
+            </div>
+            <div class="relative group py-2 -my-2">
+              <a
+                href="#"
+                class="link-underline text-sm font-semibold text-stone-700 flex items-center gap-1"
+              >
+                Olympiads
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <div
+                class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg ring-1 ring-black/5 p-2"
+              >
+                <a href="olympiads.html" class="dropdown-item">All Olympiads</a>
+                <a href="techoly.html" class="dropdown-item">Tech Olympiad</a>
+                <a href="vedmatholy.html" class="dropdown-item"
+                  >Vedic Maths Olympiad</a
+                >
+                <a href="paintoly.html" class="dropdown-item"
+                  >Painting Olympiad</a
+                >
+                <a href="cyberoly.html" class="dropdown-item">Cyber Olympiad</a>
+              </div>
+            </div>
+            <a
+              href="ai.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Coding</a
+            >
+            <a
+              href="blogs.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Blogs</a
+            >
+          </div>
+
+          <div class="hidden md:flex items-center">
+            <a
+              href="auth.html"
+              class="group inline-flex items-center justify-center rounded-lg bg-orange-500 text-white px-5 py-2.5 text-sm font-semibold hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/20"
+            >
+              Login / Sign Up
+            </a>
+          </div>
+
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              class="inline-flex items-center justify-center p-2 text-stone-700 rounded-md hover:bg-stone-100 hover:text-stone-900"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden mt-2">
+          <div
+            class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-lg rounded-xl shadow-lg ring-1 ring-black/5"
+          >
+            <a
+              href="index.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Home</a
+            >
+
+            <div>
+              <button
+                data-accordion-button
+                class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >
+                <span>About</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div class="mobile-submenu">
+                <div class="pl-6 pr-2 pt-1 pb-2 space-y-1">
+                  <a
+                    href="why-ignite.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Why Ignite Brain?</a
+                  >
+                  <a
+                    href="mission-vision.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Our Mission & Vision</a
+                  >
+                  <a
+                    href="whats-new.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >What's New</a
+                  >
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Activities</a
+                  >
+                  <a
+                    href="contact.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Contact Us</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <button
+                data-accordion-button
+                class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >
+                <span>Olympiads</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 transition-transform duration-300"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div class="mobile-submenu">
+                <div class="pl-6 pr-2 pt-1 pb-2 space-y-1">
+                  <a
+                    href="olympiads.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >All Olympiads</a
+                  >
+                  <a
+                    href="techoly.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Tech Olympiad</a
+                  >
+                  <a
+                    href="vedmatholy.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Vedic Maths Olympiad</a
+                  >
+                  <a
+                    href="paintoly.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Painting Olympiad</a
+                  >
+                  <a
+                    href="cyberoly.html"
+                    class="block px-3 py-2 rounded-md text-sm font-medium text-stone-600 hover:text-white hover:bg-orange-500"
+                    >Cyber Olympiad</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="ai.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >AI</a
+            >
+            <a
+              href="coding.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Coding</a
+            >
+            <a
+              href="robotics.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Robotics</a
+            >
+            <a
+              href="blogs.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-stone-700 hover:text-white hover:bg-orange-500"
+              >Blogs</a
+            >
+            <hr class="border-stone-200 my-2" />
+            <a
+              href="auth.html"
+              class="block px-3 py-2 rounded-md text-base font-medium text-white bg-orange-500"
+              >Login / Sign Up</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="overflow-x-hidden">
+      <!-- =================================================================== -->
+      <!--                         NEW "BLOG" CONTENT                        -->
+      <!-- =================================================================== -->
+
+      <!-- Hero Section -->
+      <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 bg-fruit-nut">
+        <div
+          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        >
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-stone-900"
+          >
+            <span class="block">The Ignite Brain Blog</span>
+            <span class="block text-orange-500"
+              >Insights for Curious Minds</span
+            >
+          </h1>
+          <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-stone-600">
+            Explore articles on technology, education, parenting, and the future
+            of learning. Your guide to navigating the world of Ed-Tech.
+          </p>
+        </div>
+      </section>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <hr
+          class="h-0.5 bg-stone-300/70 border-none"
+          style="background-color: #f97316; height: 0.3rem; border-radius: 50%"
+        />
+      </div>
+
+      <!-- Featured Post Section -->
+      <section class="py-20 bg-platinum">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-3xl font-extrabold tracking-tighter text-stone-900 mb-8"
+          >
+            Recent Post
+          </h2>
+          <div
+            class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+          >
+            <div class="w-full h-80 rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1516116216624-53e6973bea1c?q=80&w=2070&auto=format&fit=crop"
+                alt="Child learning to code on a laptop"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <span
+                class="inline-block bg-rose-100 text-rose-800 text-xs font-semibold px-3 py-1 rounded-full mb-3"
+                >Parenting Tips</span
+              >
+              <h3
+                class="text-2xl lg:text-3xl font-bold text-stone-800 tracking-tight"
+              >
+                5 Ways to Encourage Your Child's Interest in STEM at Home
+              </h3>
+              <p class="mt-4 text-stone-600">
+                You don't need a science lab in your living room to foster a
+                love for Science, Technology, Engineering, and Math. Discover
+                simple, fun, and effective activities you can do today...
+              </p>
+              <div class="mt-6 flex items-center gap-4">
+                <img
+                  class="h-12 w-12 rounded-full object-cover"
+                  src="https://placehold.co/100x100/DDD6FE/44403c?text=MP"
+                  alt="Avatar of Mrs. Patel"
+                />
+                <div>
+                  <p class="font-semibold text-stone-800">Mrs. Patel</p>
+                  <p class="text-sm text-stone-600">
+                    7th Grade Teacher | Published July 21, 2025
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Blog Content Section -->
+      <section class="py-20 bg-fruit-nut">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid lg:grid-cols-3 gap-12">
+            <!-- Blog Posts Column -->
+            <div class="lg:col-span-2">
+              <h2
+                class="text-3xl font-extrabold tracking-tighter text-stone-900 mb-8"
+              >
+                All Posts
+              </h2>
+              <div class="space-y-12">
+                <!-- Blog Post Card -->
+                <div class="grid sm:grid-cols-3 gap-6 items-center">
+                  <div
+                    class="w-full h-48 sm:h-full rounded-2xl overflow-hidden"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1614728263952-84ea256ec346?q=80&w=1925&auto=format&fit=crop"
+                      alt="AI concept art"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <span
+                      class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                      >AI</span
+                    >
+                    <h3 class="text-xl font-bold text-stone-800">
+                      Is AI the Future of Personalized Education?
+                    </h3>
+                    <p class="mt-2 text-stone-600 text-sm">
+                      We explore how Artificial Intelligence is tailoring
+                      learning experiences to each student's unique pace and
+                      style.
+                    </p>
+                    <a
+                      href="#"
+                      class="mt-3 inline-block text-orange-600 font-semibold hover:underline"
+                      >Read More &rarr;</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Blog Post Card -->
+                <div class="grid sm:grid-cols-3 gap-6 items-center">
+                  <div
+                    class="w-full h-48 sm:h-full rounded-2xl overflow-hidden"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
+                      alt="Lines of code on a screen"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <span
+                      class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                      >Coding</span
+                    >
+                    <h3 class="text-xl font-bold text-stone-800">
+                      From Blocks to Python: When to Transition?
+                    </h3>
+                    <p class="mt-2 text-stone-600 text-sm">
+                      Visual block coding is a great start, but when is the
+                      right time for a child to move to text-based languages
+                      like Python?
+                    </p>
+                    <a
+                      href="#"
+                      class="mt-3 inline-block text-orange-600 font-semibold hover:underline"
+                      >Read More &rarr;</a
+                    >
+                  </div>
+                </div>
+
+                <!-- Blog Post Card -->
+                <div class="grid sm:grid-cols-3 gap-6 items-center">
+                  <div
+                    class="w-full h-48 sm:h-full rounded-2xl overflow-hidden"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1535378620166-273708d44e4c?q=80&w=1887&auto=format&fit=crop"
+                      alt="A small robot on a table"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <span
+                      class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-2"
+                      >Robotics</span
+                    >
+                    <h3 class="text-xl font-bold text-stone-800">
+                      Beyond the Toy: What Robotics Teaches Kids
+                    </h3>
+                    <p class="mt-2 text-stone-600 text-sm">
+                      Building robots is more than just fun. It teaches
+                      problem-solving, engineering principles, and perseverance.
+                    </p>
+                    <a
+                      href="#"
+                      class="mt-3 inline-block text-orange-600 font-semibold hover:underline"
+                      >Read More &rarr;</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar Column -->
+            <aside>
+              <!-- Popular Posts -->
+              <div
+                class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+              >
+                <h3 class="text-xl font-bold text-stone-800 mb-4">
+                  Most Popular
+                </h3>
+                <div class="space-y-4">
+                  <a
+                    href="#"
+                    class="block hover:bg-stone-100/50 p-2 rounded-lg"
+                  >
+                    <p class="font-semibold text-stone-700">
+                      What is Vedic Mathematics?
+                    </p>
+                    <p class="text-xs text-stone-500">
+                      A deep dive into the ancient system.
+                    </p>
+                  </a>
+                  <a
+                    href="#"
+                    class="block hover:bg-stone-100/50 p-2 rounded-lg"
+                  >
+                    <p class="font-semibold text-stone-700">
+                      Cyber Safety Checklist for Parents
+                    </p>
+                    <p class="text-xs text-stone-500">
+                      10 essential tips for online safety.
+                    </p>
+                  </a>
+                  <a
+                    href="#"
+                    class="block hover:bg-stone-100/50 p-2 rounded-lg"
+                  >
+                    <p class="font-semibold text-stone-700">
+                      Our Favorite Educational Apps
+                    </p>
+                    <p class="text-xs text-stone-500">
+                      Apps that make learning an adventure.
+                    </p>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Categories -->
+              <div
+                class="mt-8 p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+              >
+                <h3 class="text-xl font-bold text-stone-800 mb-4">
+                  Categories
+                </h3>
+                <div class="space-y-2">
+                  <a
+                    href="#"
+                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
+                    >Coding</a
+                  >
+                  <a
+                    href="#"
+                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
+                    >Artificial Intelligence</a
+                  >
+                  <a
+                    href="#"
+                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
+                    >Robotics</a
+                  >
+                  <a
+                    href="#"
+                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
+                    >Vedic Maths</a
+                  >
+                  <a
+                    href="#"
+                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
+                    >Parenting Tips</a
+                  >
+                  <a
+                    href="#"
+                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
+                    >Cyber Safety</a
+                  >
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER WILL GO HERE - COPY FROM EXISTING PAGE -->
+
+    <script src="script.js"></script>
+  </body>
+</html>

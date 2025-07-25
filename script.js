@@ -1,11 +1,7 @@
-// Wait for the DOM to be fully loaded before running scripts
 document.addEventListener("DOMContentLoaded", () => {
   // --- NAVBAR LOGIC ---
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const mobileMenu = document.getElementById("mobile-menu");
-  const mobileAboutButton = document.getElementById("mobile-about-button");
-  const mobileAboutSubmenu = document.getElementById("mobile-about-submenu");
-  const mobileAboutIcon = document.getElementById("mobile-about-icon");
 
   if (mobileMenuButton) {
     mobileMenuButton.addEventListener("click", () => {
@@ -13,87 +9,74 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (mobileAboutButton) {
-    mobileAboutButton.addEventListener("click", () => {
-      const isHidden = mobileAboutSubmenu.classList.contains("hidden");
-      if (isHidden) {
-        mobileAboutSubmenu.classList.remove("hidden");
-        mobileAboutSubmenu.style.maxHeight =
-          mobileAboutSubmenu.scrollHeight + "px";
-        mobileAboutIcon.style.transform = "rotate(90deg)";
-      } else {
-        mobileAboutSubmenu.style.maxHeight = "0";
-        mobileAboutIcon.style.transform = "rotate(0deg)";
-        setTimeout(() => {
-          mobileAboutSubmenu.classList.add("hidden");
-        }, 400);
-      }
-    });
-  }
+  const accordionButtons = document.querySelectorAll("[data-accordion-button]");
+  accordionButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const submenu = button.nextElementSibling;
+      const icon = button.querySelector("svg");
+      const isExpanded =
+        submenu.style.maxHeight && submenu.style.maxHeight !== "0px";
 
-  // --- HERO SLIDESHOW LOGIC ---
-  const heroSlides = document.querySelectorAll(".hero-slide");
-  let currentHeroSlide = 0;
-  if (heroSlides.length > 0) {
-    setInterval(() => {
-      heroSlides[currentHeroSlide].classList.remove("active");
-      currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-      heroSlides[currentHeroSlide].classList.add("active");
-    }, 8000);
-  }
-
-  // --- STATS COUNTER ANIMATION LOGIC ---
-  const counters = document.querySelectorAll("#stats-section [data-target]");
-  const animateCounter = (counter) => {
-    const target = +counter.getAttribute("data-target");
-    const speed = 200;
-    const updateCount = () => {
-      const count = +counter.innerText.replace(/,/g, "");
-      const increment = target / speed;
-      if (count < target) {
-        const newCount = count + increment;
-        if (target % 1 !== 0) {
-          counter.innerText = newCount.toFixed(1);
-        } else {
-          counter.innerText = Math.ceil(newCount).toLocaleString();
-        }
-        setTimeout(updateCount, 15);
-      } else {
-        counter.innerText =
-          target % 1 !== 0 ? target.toFixed(1) : target.toLocaleString();
-      }
-    };
-    updateCount();
-  };
-
-  const statsObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
+      accordionButtons.forEach((otherButton) => {
+        if (otherButton !== button) {
+          const otherSubmenu = otherButton.nextElementSibling;
+          const otherIcon = otherButton.querySelector("svg");
+          otherSubmenu.style.maxHeight = null;
+          otherIcon.style.transform = "rotate(0deg)";
         }
       });
-    },
-    { threshold: 0.5 }
-  );
-  counters.forEach((counter) => statsObserver.observe(counter));
 
-  // --- LEARNING TREE ANIMATION LOGIC ---
-  const learningTreeSection = document.getElementById("learning-tree-section");
-  if (learningTreeSection) {
-    const learningTreeObserver = new IntersectionObserver(
-      (entries, observer) => {
+      if (isExpanded) {
+        submenu.style.maxHeight = null;
+        icon.style.transform = "rotate(0deg)";
+      } else {
+        submenu.style.maxHeight = submenu.scrollHeight + "px";
+        icon.style.transform = "rotate(90deg)";
+      }
+    });
+  });
+
+  // --- HERO SLIDESHOW LOGIC (REVISED FOR SLIDING CARDS) ---
+  const heroSlideshow = document.getElementById("hero-slideshow");
+  if (heroSlideshow) {
+    const slides = heroSlideshow.querySelectorAll(".hero-card-slide");
+    let currentSlide = 0;
+    const totalSlides = slides ? slides.length : 0;
+
+    if (totalSlides > 1) {
+      setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        const offset = -currentSlide * 100;
+        heroSlideshow.style.transform = `translateX(${offset}%)`;
+      }, 5000); // Change slide every 5 seconds
+    }
+  }
+
+  // --- LEARNING ROADMAP ANIMATION LOGIC (NEW) ---
+  const roadmapSection = document.getElementById("roadmap-section");
+  if (roadmapSection) {
+    const timelineItems = roadmapSection.querySelectorAll(".timeline-item");
+    const roadmapObserver = new IntersectionObserver(
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            learningTreeSection.classList.add("in-view");
-            observer.unobserve(learningTreeSection);
+            // Add the class to start the line animation
+            roadmapSection.classList.add("is-visible");
+
+            // Stagger the animation for each card
+            timelineItems.forEach((item, index) => {
+              // We set the animation delay via inline style
+              item.style.animationDelay = `${0.3 + index * 0.2}s`;
+            });
+
+            // We can unobserve after the animation starts to save resources
+            roadmapObserver.unobserve(roadmapSection);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 } // Trigger when 20% of the section is visible
     );
-    learningTreeObserver.observe(learningTreeSection);
+    roadmapObserver.observe(roadmapSection);
   }
 
   // --- CREATOR'S TOOLKIT SLIDESHOW LOGIC ---
@@ -125,14 +108,16 @@ document.addEventListener("DOMContentLoaded", () => {
       startSlideShow();
     };
 
-    nextButton.addEventListener("click", () => {
-      nextSlide();
-      resetSlideShow();
-    });
-    prevButton.addEventListener("click", () => {
-      prevSlide();
-      resetSlideShow();
-    });
+    if (nextButton && prevButton) {
+      nextButton.addEventListener("click", () => {
+        nextSlide();
+        resetSlideShow();
+      });
+      prevButton.addEventListener("click", () => {
+        prevSlide();
+        resetSlideShow();
+      });
+    }
 
     showSlide(currentSlide);
     startSlideShow();
@@ -140,13 +125,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- FAQ ACCORDION LOGIC ---
   const faqItems = document.querySelectorAll(".faq-item");
-  faqItems.forEach((item) => {
-    const question = item.querySelector(".faq-question");
-    question.addEventListener("click", () => {
-      const isActive = item.classList.contains("active");
-      faqItems.forEach((otherItem) => otherItem.classList.remove("active"));
-      if (!isActive) item.classList.add("active");
+  if (faqItems.length > 0) {
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+
+      question.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+        faqItems.forEach((otherItem) => {
+          otherItem.classList.remove("active");
+          otherItem.querySelector(".faq-answer").style.maxHeight = null;
+        });
+        if (!isActive) {
+          item.classList.add("active");
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
     });
+  }
+
+  // --- OLYMPIAD CARD SCROLL ANIMATION ---
+  const cardsToAnimate = document.querySelectorAll(
+    ".olympiad-card-new, .olympiad-featured-card"
+  );
+
+  const cardObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("is-visible");
+          }, index * 150);
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+    }
+  );
+
+  cardsToAnimate.forEach((card) => {
+    cardObserver.observe(card);
   });
-  // --- JAVASCRIPT FOR FEATURED CARD SLIDESHOW ---
+
+  // --- FEATURED CARD SLIDESHOW LOGIC ---
+  const featuredSlides = document.querySelectorAll(".featured-card-slide");
+  let currentFeaturedSlide = 0;
+
+  if (featuredSlides.length > 0) {
+    featuredSlides[0].classList.add("active");
+    setInterval(() => {
+      featuredSlides[currentFeaturedSlide].classList.remove("active");
+      currentFeaturedSlide = (currentFeaturedSlide + 1) % featuredSlides.length;
+      featuredSlides[currentFeaturedSlide].classList.add("active");
+    }, 5000);
+  }
 });

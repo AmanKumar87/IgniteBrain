@@ -3,23 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Mission & Vision - Ignite Brain</title>
-    <!-- Tailwind CSS for styling -->
+    <title>Learn to Code - Ignite Brain</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="gradient-bg-light text-stone-800">
     <!-- =================================================================== -->
-    <!--                  NAVBAR (Same as other pages)                       -->
+    <!--      HEADER (Consistent with other pages)                       -->
     <!-- =================================================================== -->
     <header class="fixed inset-x-0 top-4 z-50">
       <nav class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -309,181 +305,245 @@
 
     <main class="overflow-x-hidden">
       <!-- =================================================================== -->
-      <!--                  MISSION & VISION HEADER                            -->
+      <!--                         CODING HERO SECTION                         -->
       <!-- =================================================================== -->
-      <section class="pt-40 pb-12 bg-platinum">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1
-            class="text-4xl md:text-5xl font-extrabold tracking-tighter text-stone-900"
-          >
-            Our Vision & Mission
-          </h1>
-          <p class="mt-4 max-w-2xl mx-auto text-lg text-stone-600">
-            Guiding our journey to empower the next generation of innovators and
-            leaders through quality education.
-          </p>
+      <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 overflow-hidden">
+        <div class="absolute inset-0 bg-orange-900/5 -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+              <p
+                class="text-sm font-semibold text-orange-600 tracking-wider uppercase"
+              >
+                BUILD YOUR IDEAS
+              </p>
+              <h1
+                class="mt-2 text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-stone-900"
+              >
+                <span class="block">From First Line to</span>
+                <span class="block text-orange-500">Full-Stack Developer.</span>
+              </h1>
+              <p class="mt-6 max-w-lg mx-auto md:mx-0 text-lg text-stone-600">
+                Unlock your creativity and problem-solving skills. Our coding
+                programs guide you from visual block-based coding to creating
+                complex websites and applications with Python and JavaScript.
+              </p>
+              <div
+                class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+              >
+                <a
+                  href="#"
+                  class="inline-block rounded-lg bg-orange-500 px-8 py-3 text-center font-semibold text-white hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/20"
+                  >Start Coding Now</a
+                >
+                <a
+                  href="#"
+                  class="inline-block rounded-lg ring-2 ring-stone-300 px-8 py-3 text-center font-semibold text-stone-700 hover:bg-stone-100 transition-all"
+                  >See the Curriculum</a
+                >
+              </div>
+            </div>
+            <div class="relative">
+              <img
+                src="https://placehold.co/600x500/fed7aa/92400e?text=</>+Code"
+                alt="Abstract coding visualization"
+                class="rounded-3xl shadow-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Divider -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <hr
+          class="h-0.5 bg-stone-300/70 border-none"
+          style="background-color: #f97316; height: 0.3rem; border-radius: 50%"
+        />
+      </div>
+
+      <!-- =================================================================== -->
+      <!--                    CODING CURRICULUM SECTION                      -->
+      <!-- =================================================================== -->
+      <section class="py-20 bg-fruit-nut">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2
+              class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+            >
+              Your Coding Journey
+            </h2>
+            <p class="mt-4 max-w-3xl mx-auto text-lg text-stone-600">
+              A step-by-step path designed to build a strong foundation and
+              advance your skills logically.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Module 1 -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"
+              >
+                <span class="text-2xl">🧩</span>
+              </div>
+              <h3 class="font-bold text-stone-800 text-xl">
+                Block-Based Foundations
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Start with Scratch & PictoBlox to learn the fundamentals of
+                logic, loops, and sequencing in a fun, visual way.
+              </p>
+            </div>
+            <!-- Module 2 -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"
+              >
+                <span class="text-2xl">🐍</span>
+              </div>
+              <h3 class="font-bold text-stone-800 text-xl">
+                Introduction to Python
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Transition to text-based coding with Python, one of the world's
+                most popular and versatile programming languages.
+              </p>
+            </div>
+            <!-- Module 3 -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"
+              >
+                <span class="text-2xl">🌐</span>
+              </div>
+              <h3 class="font-bold text-stone-800 text-xl">Web Development</h3>
+              <p class="mt-2 text-stone-600">
+                Learn to build beautiful, responsive websites from scratch using
+                HTML, CSS, and JavaScript.
+              </p>
+            </div>
+            <!-- Module 4 -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4"
+              >
+                <span class="text-2xl">📱</span>
+              </div>
+              <h3 class="font-bold text-stone-800 text-xl">
+                Advanced App Development
+              </h3>
+              <p class="mt-2 text-stone-600">
+                Combine your skills to build interactive web applications and
+                explore advanced Python concepts.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- =================================================================== -->
-      <!--                  CONTENT SECTION                                    -->
+      <!--                  NEW "WHAT YOU CAN BUILD" SECTION                 -->
       <!-- =================================================================== -->
-      <section class="py-20 bg-fruit-nut">
+      <section class="py-20 bg-platinum">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Left Column: Image -->
-            <div class="w-full">
-              <img
-                src="https://placehold.co/600x600/fed7aa/44403c?text=Our+Vision"
-                alt="Illustration of a person looking through a telescope at a target"
-                class="rounded-2xl shadow-xl w-full h-full object-cover"
-              />
-            </div>
-
-            <!-- Right Column: Content Cards -->
-            <div class="space-y-8">
-              <!-- Our Vision Card -->
+          <div class="text-center mb-16">
+            <h2
+              class="text-3xl md:text-4xl font-extrabold tracking-tighter text-stone-900"
+            >
+              From Code to Creation
+            </h2>
+            <p class="mt-4 max-w-3xl mx-auto text-lg text-stone-600">
+              Learning to code is a superpower. Here are just a few of the
+              amazing things you'll be able to build.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Card 1: Websites -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2"
+            >
               <div
-                class="bg-white/60 p-8 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+                class="w-12 h-12 bg-rose-100 rounded-xl flex-shrink-0 flex items-center justify-center"
               >
-                <div class="flex items-center gap-4 mb-6">
-                  <div
-                    class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center flex-shrink-0"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6 text-rose-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                      />
-                    </svg>
-                  </div>
-                  <h2 class="text-2xl font-bold text-stone-800">Our Vision</h2>
-                </div>
-                <ul class="space-y-4 text-stone-600">
-                  <li class="flex items-start gap-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <span>To enhance the quality education in schools.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <span>To promote academic excellence in schools.</span>
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <span
-                      >To recognize the innovative talent of the pupils &
-                      encourage them.</span
-                    >
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <span
-                      >To provide scholarships and stipends to BPL students for
-                      further studies.</span
-                    >
-                  </li>
-                  <li class="flex items-start gap-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 text-orange-500 mt-1 flex-shrink-0"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    <span>To change the youth into global leaders.</span>
-                  </li>
-                </ul>
+                <span class="text-2xl">🌐</span>
               </div>
-              <!-- Our Mission Card -->
+              <div>
+                <h3 class="font-bold text-stone-800 text-xl">
+                  Interactive Websites & Portfolios
+                </h3>
+                <p class="mt-2 text-stone-600">
+                  Master HTML, CSS, and JavaScript to design and launch your own
+                  personal websites, blogs, or online portfolios to showcase
+                  your projects.
+                </p>
+              </div>
+            </div>
+            <!-- Card 2: Games -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2"
+            >
               <div
-                class="bg-white/60 p-8 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+                class="w-12 h-12 bg-yellow-100 rounded-xl flex-shrink-0 flex items-center justify-center"
               >
-                <div class="flex items-center gap-4 mb-6">
-                  <div
-                    class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6 text-indigo-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"
-                      />
-                    </svg>
-                  </div>
-                  <h2 class="text-2xl font-bold text-stone-800">Our Mission</h2>
-                </div>
-                <p class="text-stone-600">
-                  Establishing "CMOF EDU Voluntary Sr. Sec Schools" in agency
-                  and remote areas for BPL students.
+                <span class="text-2xl">🎮</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-800 text-xl">
+                  Games & Animations
+                </h3>
+                <p class="mt-2 text-stone-600">
+                  Use Scratch and Python to create your own video games,
+                  animated stories, and interactive art. Let your imagination
+                  run wild!
+                </p>
+              </div>
+            </div>
+            <!-- Card 3: Apps -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="w-12 h-12 bg-green-100 rounded-xl flex-shrink-0 flex items-center justify-center"
+              >
+                <span class="text-2xl">📱</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-800 text-xl">
+                  Useful Apps & Tools
+                </h3>
+                <p class="mt-2 text-stone-600">
+                  Build practical applications with Python, like a calculator, a
+                  to-do list, or even a tool to automate boring tasks on your
+                  computer.
+                </p>
+              </div>
+            </div>
+            <!-- Card 4: AI Projects -->
+            <div
+              class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 flex items-start gap-6 transition-transform duration-300 hover:-translate-y-2"
+            >
+              <div
+                class="w-12 h-12 bg-indigo-100 rounded-xl flex-shrink-0 flex items-center justify-center"
+              >
+                <span class="text-2xl">🤖</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-stone-800 text-xl">
+                  AI-Powered Creations
+                </h3>
+                <p class="mt-2 text-stone-600">
+                  Combine coding with AI concepts to build smart projects, like
+                  a simple chatbot or an image recognizer that can identify
+                  objects.
                 </p>
               </div>
             </div>
@@ -493,13 +553,19 @@
     </main>
 
     <!-- =================================================================== -->
-    <!--                  FOOTER (Same as other pages)                       -->
+    <!--      FOOTER (Consistent with other pages)                         -->
     <!-- =================================================================== -->
-    <footer class="bg-platinum">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <hr
+        class="h-0.5 bg-stone-300/70 border-none"
+        style="background-color: #f97316; height: 0.3rem; border-radius: 50%"
+      />
+    </div>
+    <footer class="bg-fruit-nut">
       <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div class="col-span-2 md:col-span-1">
-            <a href="index.html" class="flex items-center">
+            <a href="#" class="flex items-center">
               <div>
                 <span class="text-xl font-bold text-stone-900 tracking-tighter"
                   >IGNITE BRAIN</span
@@ -626,7 +692,7 @@
               >
                 <path
                   fill-rule="evenodd"
-                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.795 2.013 10.148 2 12.315 2zm-1.161 1.545c-2.399 0-2.693.01-3.638.056-.945.045-1.505.2-1.994.377a3.42 3.42 0 00-1.262.824 3.42 3.42 0 00-.824 1.262c-.177.489-.332 1.05-.377 1.994-.046.945-.056 1.239-.056 3.638s.01 2.693.056 3.638c.045.945.2 1.505.377 1.994a3.42 3.42 0 00.824 1.262 3.42 3.42 0 001.262.824c.489.177 1.05.332 1.994.377.945.046 1.239.056 3.638.056s2.693-.01 3.638-.056c.945-.045 1.505-.2 1.994-.377a3.42 3.42 0 001.262-.824 3.42 3.42 0 00.824-1.262c.177-.489.332-1.05.377-1.994.046-.945.056-1.239-.056-3.638s-.01-2.693-.056-3.638c-.045-.945-.2-1.505-.377-1.994a3.42 3.42 0 00-.824-1.262 3.42 3.42 0 00-1.262-.824c-.489-.177-1.05-.332-1.994-.377-.945-.046-1.239-.056-3.638-.056zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 1.802a3.333 3.333 0 110 6.666 3.333 3.333 0 010-6.666zm5.338-3.205a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
+                  d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.795 2.013 10.148 2 12.315 2zm-1.161 1.545c-2.399 0-2.693.01-3.638.056-.945.045-1.505.2-1.994.377a3.42 3.42 0 00-1.262.824 3.42 3.42 0 00-.824 1.262c-.177.489-.332 1.05-.377 1.994-.046.945-.056 1.239-.056 3.638s.01 2.693.056 3.638c.045.945.2 1.505.377 1.994a3.42 3.42 0 00.824 1.262 3.42 3.42 0 001.262.824c.489.177 1.05.332 1.994.377.945.046 1.239.056 3.638.056s2.693-.01 3.638-.056c.945-.045 1.505-.2 1.994-.377a3.42 3.42 0 001.262-.824 3.42 3.42 0 00.824-1.262c.177-.489.332-1.05.377-1.994.046-.945.056-1.239.056-3.638s-.01-2.693-.056-3.638c-.045-.945-.2-1.505-.377-1.994a3.42 3.42 0 00-.824-1.262 3.42 3.42 0 00-1.262-.824c-.489-.177-1.05-.332-1.994-.377-.945-.046-1.239-.056-3.638-.056zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 1.802a3.333 3.333 0 110 6.666 3.333 3.333 0 010-6.666zm5.338-3.205a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"
                   clip-rule="evenodd"
                 />
               </svg>
@@ -640,7 +706,7 @@
                 aria-hidden="true"
               >
                 <path
-                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+                  d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 1.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
                 />
               </svg>
             </a>
@@ -652,7 +718,6 @@
       </div>
     </footer>
 
-    <!-- Main Script File -->
     <script src="script.js"></script>
   </body>
 </html>

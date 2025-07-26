@@ -572,3 +572,439 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.nav-link-active {
+  color: #f97316; /* Orange-500 */
+  font-weight: 600; /* semibold */
+}
+/* =================================================================== */
+/* STYLES FOR NEW MIND MAP AI ROADMAP                       */
+/* =================================================================== */
+.mindmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem; /* Space between levels */
+  padding: 2rem 0;
+}
+
+.mindmap-level {
+  display: flex;
+  justify-content: center;
+  gap: 5rem; /* Space between branches on the same level */
+  width: 100%;
+}
+
+.mindmap-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* Space between a node and its leaves */
+  position: relative;
+}
+
+.mindmap-node,
+.mindmap-leaf {
+  background-color: #e0e7ff; /* indigo-100 */
+  border: 2px solid #c7d2fe; /* indigo-200 */
+  color: #3730a3; /* indigo-800 */
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem; /* 12px */
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  min-width: 180px;
+  transition: all 0.3s ease;
+}
+
+.mindmap-node:hover,
+.mindmap-leaf:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.15);
+  border-color: #a5b4fc; /* indigo-300 */
+}
+
+.mindmap-node.central-node {
+  background-color: #4f46e5; /* indigo-600 */
+  color: white;
+  border-color: #3730a3; /* indigo-800 */
+  font-size: 1.25rem; /* 20px */
+  padding: 1rem 2rem;
+}
+
+.mindmap-sub-nodes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- Drawing the connecting lines --- */
+.mindmap-branch::before {
+  content: "";
+  position: absolute;
+  background-color: #a5b4fc; /* indigo-300 */
+  z-index: -1;
+}
+
+/* Line from central node down to level 2 */
+.mindmap-level:nth-child(2) .mindmap-branch::before {
+  top: -4rem;
+  height: 4rem;
+  width: 2px;
+}
+
+/* Line from level 2 nodes down to level 3 */
+.mindmap-level:nth-child(3) .mindmap-branch::before {
+  top: -4rem;
+  height: 4rem;
+  width: 2px;
+}
+
+/* Horizontal connecting lines */
+.mindmap-level:nth-child(2)::before,
+.mindmap-level:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #a5b4fc; /* indigo-300 */
+  width: 50%;
+  max-width: 400px;
+  top: -2rem; /* Position it in the middle of the gap */
+  z-index: -1;
+}
+
+/* Lines from a node to its leaves */
+.mindmap-sub-nodes .mindmap-leaf {
+  position: relative;
+}
+
+.mindmap-sub-nodes .mindmap-leaf::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -1rem;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 1rem;
+  background-color: #a5b4fc;
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .mindmap-container {
+    gap: 2rem;
+  }
+  .mindmap-level {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  .mindmap-level::before {
+    display: none;
+  } /* Hide horizontal lines on mobile */
+  .mindmap-branch::before {
+    top: -2rem;
+    height: 2rem;
+  }
+}
+/* =================================================================== */
+/* STYLES FOR NEW, ACCURATE MIND MAP AI ROADMAP                 */
+/* =================================================================== */
+.mind-map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Fixed height for the canvas */
+  margin: 0 auto;
+}
+
+.mind-map-svg-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.mind-map-svg-lines path {
+  stroke: #a5b4fc; /* indigo-300 */
+  stroke-width: 2;
+  fill: none;
+}
+
+.mind-map-svg-lines .line-dotted {
+  stroke-dasharray: 4 4;
+}
+
+.mm-node,
+.mm-leaf {
+  position: absolute;
+  background-color: #eef2ff; /* indigo-50 */
+  border: 1px solid #c7d2fe; /* indigo-200 */
+  color: #3730a3; /* indigo-800 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem; /* 8px */
+  font-weight: 600;
+  font-size: 0.875rem; /* 14px */
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translate(-50%, -50%); /* Center the node on its coordinates */
+  min-width: 150px;
+  transition: all 0.2s ease-in-out;
+}
+
+.mm-node:hover,
+.mm-leaf:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.1);
+  border-color: #818cf8; /* indigo-400 */
+}
+
+.mm-node {
+  background-color: #e0e7ff; /* indigo-100 */
+  border-color: #a5b4fc; /* indigo-300 */
+  padding: 0.75rem 1.25rem;
+}
+
+.mm-center {
+  background-color: #4f46e5; /* indigo-600 */
+  color: white;
+  border-color: #3730a3; /* indigo-800 */
+  font-size: 1rem; /* 16px */
+  font-weight: 700;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+  .mind-map-wrapper {
+    height: auto; /* Allow height to be determined by content */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .mind-map-svg-lines {
+    display: none; /* Hide complex lines on mobile */
+  }
+  .mm-node,
+  .mm-leaf {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+/* =================================================================== */
+/* STYLES FOR FINAL, ACCURATE MIND MAP AI ROADMAP                 */
+/* =================================================================== */
+.final-mind-map {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.final-mind-map-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.final-mind-map-lines path {
+  stroke: #a5b4fc; /* indigo-300 */
+  stroke-width: 2;
+  fill: none;
+}
+
+.final-mind-map-lines .line-dotted {
+  stroke-dasharray: 4 4;
+}
+
+.fmm-node,
+.fmm-leaf {
+  position: absolute;
+  background-color: #eef2ff; /* indigo-50 */
+  border: 1px solid #c7d2fe; /* indigo-200 */
+  color: #3730a3; /* indigo-800 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translate(-50%, -50%);
+  min-width: 160px;
+  transition: all 0.2s ease-in-out;
+  z-index: 1;
+}
+
+.fmm-node:hover,
+.fmm-leaf:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.1);
+  border-color: #818cf8; /* indigo-400 */
+}
+
+.fmm-node {
+  background-color: #e0e7ff; /* indigo-100 */
+  border-color: #a5b4fc; /* indigo-300 */
+  padding: 0.75rem 1.25rem;
+}
+
+.fmm-center {
+  background-color: #4f46e5; /* indigo-600 */
+  color: white;
+  border-color: #3730a3; /* indigo-800 */
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+  .final-mind-map {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .final-mind-map-lines {
+    display: none;
+  }
+  .fmm-node,
+  .fmm-leaf {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+/* =================================================================== */
+/* STYLES FOR STATS ICON PULSE ANIMATION                    */
+/* =================================================================== */
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.stat-icon-container.animating > div:first-child {
+  animation: pulse-animation 1s ease-in-out;
+}
+/* =================================================================== */
+/* STYLES FOR WELCOME SECTION CARD ANIMATION                */
+/* =================================================================== */
+@keyframes card-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initially hide the cards */
+.olympiad-card-new,
+.olympiad-featured-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* The state when the card becomes visible */
+.olympiad-card-new.is-visible,
+.olympiad-featured-card.is-visible {
+  animation: card-fade-in-up 0.6s ease-out forwards;
+}
+/* =================================================================== */
+/* STYLES FOR SKILL TRACKS CARD ANIMATION (CORRECTED)       */
+/* =================================================================== */
+.skill-card-animate {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.skill-card-animate.is-visible {
+  animation: card-fade-in-up 0.6s ease-out forwards;
+}
+/* =================================================================== */
+/* STYLES FOR WHAT'S NEW TEXT SCROLLER                      */
+/* =================================================================== */
+@keyframes scroll-text-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(
+      -50%
+    ); /* The content is duplicated, so we only need to move it by half */
+  }
+}
+
+.text-scroller-content {
+  display: inline-block; /* This allows the transform animation to work */
+  animation: scroll-text-left 30s linear infinite;
+  padding-left: 100%; /* This ensures the text starts from the right side */
+}
+/* =================================================================== */
+/* STYLES FOR THE CODE LAB PAGE (FINAL, CORRECTED VERSION)    */
+/* =================================================================== */
+.lab-tab {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #57534e; /* stone-600 */
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.lab-tab:hover {
+  background-color: #f5f5f4; /* stone-100 */
+  color: #1c1917; /* stone-900 */
+}
+
+.lab-tab.active {
+  background-color: #fff;
+  color: #f97316; /* orange-500 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.editor-pane {
+  background-color: #263238; /* material-darker bg */
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d6d3d1; /* stone-300 */
+}
+
+.editor-header {
+  background-color: #e7e5e4; /* stone-200 */
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: #44403c; /* stone-700 */
+  font-size: 0.875rem;
+  border-bottom: 1px solid #d6d3d1; /* stone-300 */
+}
+
+/* CodeMirror Editor Styling */
+.CodeMirror {
+  height: 100% !important;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 14px;
+}
+
+#output-console {
+  font-family: "Fira Code", "Courier New", monospace;
+  background-color: #f5f5f4; /* stone-100 */
+  color: #1c1917;
+}

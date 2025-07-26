@@ -145,29 +145,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- OLYMPIAD CARD SCROLL ANIMATION ---
-  const cardsToAnimate = document.querySelectorAll(
-    ".olympiad-card-new, .olympiad-featured-card"
-  );
+  // --- WELCOME SECTION CARD ANIMATION ---
+  const welcomeSection = document.querySelector(".lg\\:col-span-2.grid"); // Target the grid containing the cards
+  if (welcomeSection) {
+    const cardsToAnimate =
+      welcomeSection.querySelectorAll(".olympiad-card-new");
+    const featuredCard = document.querySelector(
+      ".lg\\:col-span-1.bg-gradient-to-br"
+    ); // Target the featured card separately
 
-  const cardObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add("is-visible");
-          }, index * 150);
-          cardObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-    }
-  );
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate the 4 grid cards with a stagger
+            cardsToAnimate.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add("is-visible");
+              }, index * 150); // 150ms delay between each card
+            });
+            // Animate the featured card
+            if (featuredCard) {
+              setTimeout(() => {
+                featuredCard.classList.add("is-visible");
+              }, 150); // Give it a small delay
+            }
+            cardObserver.unobserve(entry.target); // Stop observing after animation starts
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the section is visible
+      }
+    );
 
-  cardsToAnimate.forEach((card) => {
-    cardObserver.observe(card);
-  });
+    cardObserver.observe(welcomeSection);
+  }
 
   // --- FEATURED CARD SLIDESHOW LOGIC ---
   const featuredSlides = document.querySelectorAll(".featured-card-slide");
@@ -180,5 +193,164 @@ document.addEventListener("DOMContentLoaded", () => {
       currentFeaturedSlide = (currentFeaturedSlide + 1) % featuredSlides.length;
       featuredSlides[currentFeaturedSlide].classList.add("active");
     }, 5000);
+  }
+  // --- STATS SECTION ICON ANIMATION ---
+  const statIcons = document.querySelectorAll(".stat-icon-container");
+  if (statIcons.length > 0) {
+    let currentIconIndex = 0;
+    setInterval(() => {
+      // Remove animation from the previously animated icon
+      if (statIcons[currentIconIndex]) {
+        statIcons[currentIconIndex].classList.remove("animating");
+      }
+
+      // Move to the next icon, looping back to the start
+      currentIconIndex = (currentIconIndex + 1) % statIcons.length;
+
+      // Add animation to the new current icon
+      if (statIcons[currentIconIndex]) {
+        statIcons[currentIconIndex].classList.add("animating");
+      }
+    }, 1000); // Change icon every 1 second
+  }
+  // --- SKILL TRACKS SECTION CARD ANIMATION ---
+  const skillTracksSection = document.getElementById("skill-tracks-section");
+  if (skillTracksSection) {
+    const cardsToAnimate = skillTracksSection.querySelectorAll(
+      ".skill-card-animate"
+    );
+
+    const skillCardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            cardsToAnimate.forEach((card, index) => {
+              setTimeout(() => {
+                card.classList.add("is-visible");
+              }, index * 150); // Staggered delay
+            });
+            skillCardObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    skillCardObserver.observe(skillTracksSection);
+  }
+  // --- CODE LAB PAGE LOGIC ---
+  if (document.getElementById("lab-page-container")) {
+    // A simple check to see if we're on the lab page
+    // Initialize CodeMirror Editors
+    const htmlEditor = CodeMirror.fromTextArea(
+      document.getElementById("html-code"),
+      {
+        mode: "xml",
+        theme: "material-darker",
+        lineNumbers: true,
+        autoCloseTags: true,
+      }
+    );
+    const cssEditor = CodeMirror.fromTextArea(
+      document.getElementById("css-code"),
+      {
+        mode: "css",
+        theme: "material-darker",
+        lineNumbers: true,
+        autoCloseBrackets: true,
+      }
+    );
+    const jsEditor = CodeMirror.fromTextArea(
+      document.getElementById("js-code"),
+      {
+        mode: "javascript",
+        theme: "material-darker",
+        lineNumbers: true,
+        autoCloseBrackets: true,
+      }
+    );
+    const singleEditor = CodeMirror.fromTextArea(
+      document.getElementById("single-code"),
+      {
+        mode: "python",
+        theme: "material-darker",
+        lineNumbers: true,
+        autoCloseBrackets: true,
+      }
+    );
+
+    const languageTabs = document.getElementById("language-tabs");
+    const runCodeBtn = document.getElementById("run-code-btn");
+    const webEditor = document.getElementById("web-editor");
+    const singleEditorContainer = document.getElementById("single-editor");
+    const singleEditorHeader = document.getElementById("single-editor-header");
+    const previewFrame = document.getElementById("preview-frame");
+    const outputConsole = document.getElementById("output-console");
+
+    let currentLanguage = "web";
+
+    // Function to switch between languages
+    languageTabs.addEventListener("click", (e) => {
+      if (e.target.tagName === "BUTTON") {
+        const lang = e.target.dataset.lang;
+        if (lang === currentLanguage) return;
+
+        // Update active tab
+        languageTabs.querySelector(".active").classList.remove("active");
+        e.target.classList.add("active");
+
+        currentLanguage = lang;
+
+        if (lang === "web") {
+          webEditor.classList.remove("hidden");
+          singleEditorContainer.classList.add("hidden");
+          previewFrame.classList.remove("hidden");
+          outputConsole.classList.add("hidden");
+        } else {
+          webEditor.classList.add("hidden");
+          singleEditorContainer.classList.remove("hidden");
+          previewFrame.classList.add("hidden");
+          outputConsole.classList.remove("hidden");
+
+          // Update single editor mode and header
+          let mode = "python";
+          let headerText = "Python";
+          if (lang === "cpp") {
+            mode = "text/x-c++src";
+            headerText = "C++";
+          } else if (lang === "c") {
+            mode = "text/x-csrc";
+            headerText = "C";
+          } else if (lang === "java") {
+            mode = "text/x-java";
+            headerText = "Java";
+          }
+
+          singleEditor.setOption("mode", mode);
+          singleEditorHeader.textContent = headerText;
+          outputConsole.textContent = `Running ${headerText} code is a complex backend operation.\nThis is a UI demonstration. Press "Run Code" to see a sample output.`;
+        }
+      }
+    });
+
+    // Function to run the code
+    runCodeBtn.addEventListener("click", () => {
+      if (currentLanguage === "web") {
+        const htmlCode = htmlEditor.getValue();
+        const cssCode = `<style>${cssEditor.getValue()}</style>`;
+        const jsCode = `<script>${jsEditor.getValue()}<\/script>`;
+        const combinedCode = `${htmlCode}${cssCode}${jsCode}`;
+
+        const previewDoc = previewFrame.contentWindow.document;
+        previewDoc.open();
+        previewDoc.write(combinedCode);
+        previewDoc.close();
+      } else {
+        // NOTE: Actually compiling C++, Java, Python requires a server-side backend.
+        // This is a front-end simulation for demonstration purposes.
+        const langName = languageTabs.querySelector(".active").textContent;
+        outputConsole.textContent = `Simulating output for ${langName}...\n\nHello, Ignite Brain!\nProcess finished successfully.`;
+      }
+    });
   }
 });

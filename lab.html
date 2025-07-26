@@ -3,18 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog - Ignite Brain</title>
+    <title>Ignite Brain Code Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <!-- CodeMirror for the code editor -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/neat.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+
+    <!-- Skulpt for in-browser Python execution -->
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt-stdlib.js"></script>
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="lab.css" />
   </head>
   <body class="gradient-bg-light text-stone-800">
-    <!-- HEADER WILL GO HERE - COPY FROM STEP 2 -->
+    <!-- HEADER -->
     <header class="fixed inset-x-0 top-4 z-50">
       <nav class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
@@ -299,293 +324,150 @@
           </div>
         </div>
       </nav>
+      </nav>
     </header>
-    <main class="overflow-x-hidden">
-      <!-- =================================================================== -->
-      <!--                         NEW "BLOG" CONTENT                        -->
-      <!-- =================================================================== -->
 
-      <!-- Hero Section -->
-      <section class="relative pt-40 pb-20 lg:pt-48 lg:pb-28 bg-fruit-nut">
+    <main class="pt-24">
+      <!-- =================================================================== -->
+      <!--                         CODE LAB SECTION                            -->
+      <!-- =================================================================== -->
+      <section
+        id="lab-page-container"
+        class="h-[calc(100vh-96px)] bg-fruit-nut p-4 hidden md:flex gap-4"
+      >
+        <!-- Left Pane: File Explorer -->
         <div
-          class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+          id="file-explorer"
+          class="w-1/5 max-w-xs bg-white/80 backdrop-blur-lg rounded-xl shadow-md border border-stone-200 flex flex-col"
         >
-          <h1
-            class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-stone-900"
-          >
-            <span class="block">The Ignite Brain Blog</span>
-            <span class="block text-orange-500"
-              >Insights for Curious Minds</span
-            >
-          </h1>
-          <p class="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-stone-600">
-            Explore articles on technology, education, parenting, and the future
-            of learning. Your guide to navigating the world of Ed-Tech.
-          </p>
-        </div>
-      </section>
-
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <hr
-          class="h-0.5 bg-stone-300/70 border-none"
-          style="background-color: #f97316; height: 0.3rem; border-radius: 50%"
-        />
-      </div>
-
-      <!-- Featured Post Section -->
-      <section class="py-20 bg-platinum">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            class="text-3xl font-extrabold tracking-tighter text-stone-900 mb-8"
-          >
-            Recent Post
-          </h2>
           <div
-            class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
+            class="p-3 border-b border-stone-200 flex justify-between items-center"
           >
-            <div class="w-full h-80 rounded-2xl overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1516116216624-53e6973bea1c?q=80&w=2070&auto=format&fit=crop"
-                alt="Child learning to code on a laptop"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <span
-                class="inline-block bg-rose-100 text-rose-800 text-xs font-semibold px-3 py-1 rounded-full mb-3"
-                >Parenting Tips</span
+            <h2 class="font-bold text-stone-800">Project Files</h2>
+            <button
+              id="new-file-btn"
+              class="new-file-button"
+              title="Create New File"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
-              <h3
-                class="text-2xl lg:text-3xl font-bold text-stone-800 tracking-tight"
-              >
-                5 Ways to Encourage Your Child's Interest in STEM at Home
-              </h3>
-              <p class="mt-4 text-stone-600">
-                You don't need a science lab in your living room to foster a
-                love for Science, Technology, Engineering, and Math. Discover
-                simple, fun, and effective activities you can do today...
-              </p>
-              <div class="mt-6 flex items-center gap-4">
-                <img
-                  class="h-12 w-12 rounded-full object-cover"
-                  src="https://placehold.co/100x100/DDD6FE/44403c?text=MP"
-                  alt="Avatar of Mrs. Patel"
+                <path
+                  fill-rule="evenodd"
+                  d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z"
+                  clip-rule="evenodd"
                 />
-                <div>
-                  <p class="font-semibold text-stone-800">Mrs. Patel</p>
-                  <p class="text-sm text-stone-600">
-                    7th Grade Teacher | Published July 21, 2025
-                  </p>
-                </div>
-              </div>
+              </svg>
+            </button>
+          </div>
+          <div id="file-list" class="p-2 space-y-1 flex-grow">
+            <!-- File list will be generated by JS -->
+          </div>
+        </div>
+
+        <!-- Resizer Handle -->
+        <div
+          id="resizer"
+          class="w-2 cursor-col-resize bg-stone-300/50 hover:bg-orange-400 transition-colors rounded-full"
+        ></div>
+
+        <!-- Right Pane: Editor and Controls -->
+        <div id="main-content" class="flex-1 flex flex-col gap-4">
+          <div
+            class="flex-shrink-0 bg-white/80 backdrop-blur-lg rounded-xl shadow-md border border-stone-200 p-2 flex items-center justify-between"
+          >
+            <div id="language-tabs" class="flex items-center space-x-1">
+              <button data-lang="web" class="lab-tab active">Web</button>
+              <button data-lang="python" class="lab-tab">Python</button>
+              <button data-lang="cpp" class="lab-tab">C++</button>
+              <button data-lang="c" class="lab-tab">C</button>
+              <button data-lang="java" class="lab-tab">Java</button>
+            </div>
+            <div class="flex items-center gap-4">
+              <button
+                id="run-code-btn"
+                class="group inline-flex items-center justify-center rounded-lg bg-orange-500 text-white px-6 py-2 text-sm font-semibold hover:bg-orange-600 transition-colors shadow-md shadow-orange-500/20"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5 mr-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                Run
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="flex-grow flex flex-col bg-white/80 backdrop-blur-lg rounded-xl shadow-md border border-stone-200 overflow-hidden"
+          >
+            <div
+              id="editor-tabs"
+              class="flex-shrink-0 flex border-b border-stone-200"
+            >
+              <!-- Editor tabs will be generated by JS -->
+            </div>
+            <div id="editor-container" class="flex-grow relative">
+              <!-- CodeMirror instances will be placed here by JS -->
+            </div>
+            <div
+              id="console-container"
+              class="flex-shrink-0 h-1/3 border-t border-stone-200 hidden"
+            >
+              <div class="editor-header">Output</div>
+              <pre
+                id="output-console"
+                class="p-4 text-sm whitespace-pre-wrap overflow-auto h-full"
+              ></pre>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Main Blog Content Section -->
-      <section class="py-20 bg-fruit-nut">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid lg:grid-cols-3 gap-12">
-            <!-- Blog Posts Column -->
-            <div class="lg:col-span-2">
-              <h2
-                class="text-3xl font-extrabold tracking-tighter text-stone-900 mb-8"
-              >
-                All Posts
-              </h2>
-              <div class="space-y-12">
-                <!-- Blog Post Card -->
-                <div class="grid sm:grid-cols-3 gap-6 items-center">
-                  <div
-                    class="w-full h-48 sm:h-full rounded-2xl overflow-hidden"
-                  >
-                    <img
-                      src="https://images.unsplash.com/photo-1614728263952-84ea256ec346?q=80&w=1925&auto=format&fit=crop"
-                      alt="AI concept art"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div class="sm:col-span-2">
-                    <span
-                      class="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full mb-2"
-                      >AI</span
-                    >
-                    <h3 class="text-xl font-bold text-stone-800">
-                      Is AI the Future of Personalized Education?
-                    </h3>
-                    <p class="mt-2 text-stone-600 text-sm">
-                      We explore how Artificial Intelligence is tailoring
-                      learning experiences to each student's unique pace and
-                      style.
-                    </p>
-                    <a
-                      href="#"
-                      class="mt-3 inline-block text-orange-600 font-semibold hover:underline"
-                      >Read More &rarr;</a
-                    >
-                  </div>
-                </div>
-
-                <!-- Blog Post Card -->
-                <div class="grid sm:grid-cols-3 gap-6 items-center">
-                  <div
-                    class="w-full h-48 sm:h-full rounded-2xl overflow-hidden"
-                  >
-                    <img
-                      src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop"
-                      alt="Lines of code on a screen"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div class="sm:col-span-2">
-                    <span
-                      class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-2"
-                      >Coding</span
-                    >
-                    <h3 class="text-xl font-bold text-stone-800">
-                      From Blocks to Python: When to Transition?
-                    </h3>
-                    <p class="mt-2 text-stone-600 text-sm">
-                      Visual block coding is a great start, but when is the
-                      right time for a child to move to text-based languages
-                      like Python?
-                    </p>
-                    <a
-                      href="#"
-                      class="mt-3 inline-block text-orange-600 font-semibold hover:underline"
-                      >Read More &rarr;</a
-                    >
-                  </div>
-                </div>
-
-                <!-- Blog Post Card -->
-                <div class="grid sm:grid-cols-3 gap-6 items-center">
-                  <div
-                    class="w-full h-48 sm:h-full rounded-2xl overflow-hidden"
-                  >
-                    <img
-                      src="https://images.unsplash.com/photo-1535378620166-273708d44e4c?q=80&w=1887&auto=format&fit=crop"
-                      alt="A small robot on a table"
-                      class="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div class="sm:col-span-2">
-                    <span
-                      class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-2"
-                      >Robotics</span
-                    >
-                    <h3 class="text-xl font-bold text-stone-800">
-                      Beyond the Toy: What Robotics Teaches Kids
-                    </h3>
-                    <p class="mt-2 text-stone-600 text-sm">
-                      Building robots is more than just fun. It teaches
-                      problem-solving, engineering principles, and perseverance.
-                    </p>
-                    <a
-                      href="#"
-                      class="mt-3 inline-block text-orange-600 font-semibold hover:underline"
-                      >Read More &rarr;</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Sidebar Column -->
-            <aside>
-              <!-- Popular Posts -->
-              <div
-                class="p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
-              >
-                <h3 class="text-xl font-bold text-stone-800 mb-4">
-                  Most Popular
-                </h3>
-                <div class="space-y-4">
-                  <a
-                    href="#"
-                    class="block hover:bg-stone-100/50 p-2 rounded-lg"
-                  >
-                    <p class="font-semibold text-stone-700">
-                      What is Vedic Mathematics?
-                    </p>
-                    <p class="text-xs text-stone-500">
-                      A deep dive into the ancient system.
-                    </p>
-                  </a>
-                  <a
-                    href="#"
-                    class="block hover:bg-stone-100/50 p-2 rounded-lg"
-                  >
-                    <p class="font-semibold text-stone-700">
-                      Cyber Safety Checklist for Parents
-                    </p>
-                    <p class="text-xs text-stone-500">
-                      10 essential tips for online safety.
-                    </p>
-                  </a>
-                  <a
-                    href="#"
-                    class="block hover:bg-stone-100/50 p-2 rounded-lg"
-                  >
-                    <p class="font-semibold text-stone-700">
-                      Our Favorite Educational Apps
-                    </p>
-                    <p class="text-xs text-stone-500">
-                      Apps that make learning an adventure.
-                    </p>
-                  </a>
-                </div>
-              </div>
-
-              <!-- Categories -->
-              <div
-                class="mt-8 p-6 bg-white/60 rounded-2xl shadow-lg backdrop-blur-xl ring-1 ring-black/5"
-              >
-                <h3 class="text-xl font-bold text-stone-800 mb-4">
-                  Categories
-                </h3>
-                <div class="space-y-2">
-                  <a
-                    href="#"
-                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
-                    >Coding</a
-                  >
-                  <a
-                    href="#"
-                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
-                    >Artificial Intelligence</a
-                  >
-                  <a
-                    href="#"
-                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
-                    >Robotics</a
-                  >
-                  <a
-                    href="#"
-                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
-                    >Vedic Maths</a
-                  >
-                  <a
-                    href="#"
-                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
-                    >Parenting Tips</a
-                  >
-                  <a
-                    href="#"
-                    class="block font-semibold text-stone-700 hover:text-orange-600 hover:underline p-2 rounded-lg"
-                    >Cyber Safety</a
-                  >
-                </div>
-              </div>
-            </aside>
-          </div>
+      <!-- Mobile "Not Available" Message -->
+      <div
+        id="mobile-lab-message"
+        class="md:hidden flex flex-col items-center justify-center text-center p-8 h-[calc(100vh-96px)] bg-fruit-nut"
+      >
+        <div
+          class="w-24 h-24 bg-orange-100 rounded-full flex items-center justify-center mb-6"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-12 w-12 text-orange-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+            />
+          </svg>
         </div>
-      </section>
+        <h2 class="text-2xl font-bold text-stone-800">
+          Lab is Best on Desktop
+        </h2>
+        <p class="mt-2 max-w-sm text-stone-600">
+          The Code Lab is designed for a larger screen. Please switch to a
+          desktop or tablet for the best experience.
+        </p>
+      </div>
     </main>
 
-    <!-- FOOTER WILL GO HERE - COPY FROM EXISTING PAGE -->
-
+    <script src="lab.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

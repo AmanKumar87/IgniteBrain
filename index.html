@@ -35,7 +35,7 @@
           <div class="hidden md:flex items-center gap-8">
             <a
               href="index.html"
-              class="link-underline text-sm font-semibold text-stone-700"
+              class="link-underline text-sm font-semibold text-stone-700 nav-link-active"
               >Home</a
             >
             <div class="relative group py-2 -my-2">
@@ -118,6 +118,11 @@
               href="blogs.html"
               class="link-underline text-sm font-semibold text-stone-700"
               >Blogs</a
+            >
+            <a
+              href="lab.html"
+              class="link-underline text-sm font-semibold text-stone-700"
+              >Lab</a
             >
           </div>
 
@@ -653,6 +658,7 @@
       </div>
 
       <section
+        id="skill-tracks-section"
         class="py-20"
         style="background: linear-gradient(0deg, #ffe7b8 49%, #ffffff 85%)"
       >
@@ -672,7 +678,7 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div
-              class="lg:col-span-1 bg-gradient-to-br from-orange-400 to-rose-500 rounded-3xl shadow-2xl shadow-orange-500/30 flex flex-col text-white transition-transform duration-300 hover:-translate-y-2 overflow-hidden"
+              class="lg:col-span-1 bg-gradient-to-br from-orange-400 to-rose-500 rounded-3xl shadow-2xl shadow-orange-500/30 flex flex-col text-white transition-transform duration-300 hover:-translate-y-2 overflow-hidden skill-card-animate"
             >
               <div class="p-8">
                 <h3 class="text-2xl font-bold tracking-tight">
@@ -718,7 +724,7 @@
 
             <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div
-                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2 skill-card-animate"
               >
                 <div
                   class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center"
@@ -746,7 +752,7 @@
                 </p>
               </div>
               <div
-                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2 skill-card-animate"
               >
                 <div
                   class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center"
@@ -774,7 +780,7 @@
                 </p>
               </div>
               <div
-                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2 skill-card-animate"
               >
                 <div
                   class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center"
@@ -802,7 +808,7 @@
                 </p>
               </div>
               <div
-                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2"
+                class="bg-white/60 p-8 rounded-3xl shadow-lg backdrop-blur-xl ring-1 ring-black/5 transition-transform duration-300 hover:-translate-y-2 skill-card-animate"
               >
                 <div
                   class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center"
@@ -841,6 +847,9 @@
         />
       </div>
 
+      <!-- =================================================================== -->
+      <!--                         STATS SECTION (UPDATED)                     -->
+      <!-- =================================================================== -->
       <section id="stats-section" class="py-20 bg-fruit-nut">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center">
@@ -858,7 +867,7 @@
             class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 text-center"
           >
             <!-- Item 1 -->
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center stat-icon-container">
               <div
                 class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-4xl mb-4"
               >
@@ -868,7 +877,7 @@
               <p class="text-sm text-stone-600">to simplify complex concepts</p>
             </div>
             <!-- Item 2 -->
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center stat-icon-container">
               <div
                 class="w-16 h-16 bg-rose-100 rounded-2xl flex items-center justify-center text-4xl mb-4"
               >
@@ -880,7 +889,7 @@
               <p class="text-sm text-stone-600">with expert trainers</p>
             </div>
             <!-- Item 3 -->
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center stat-icon-container">
               <div
                 class="w-16 h-16 bg-yellow-100 rounded-2xl flex items-center justify-center text-4xl mb-4"
               >
@@ -892,7 +901,7 @@
               </p>
             </div>
             <!-- Item 4 -->
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center stat-icon-container">
               <div
                 class="w-16 h-16 bg-indigo-100 rounded-2xl flex items-center justify-center text-4xl mb-4"
               >
@@ -902,7 +911,9 @@
               <p class="text-sm text-stone-600">by students and parents</p>
             </div>
             <!-- Item 5 -->
-            <div class="flex flex-col items-center sm:col-span-2 lg:col-span-1">
+            <div
+              class="flex flex-col items-center sm:col-span-2 lg:col-span-1 stat-icon-container"
+            >
               <div
                 class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center text-4xl mb-4"
               >
@@ -1091,7 +1102,6 @@
               the year-by-year path to mastery.
             </p>
           </div>
-
           <div
             id="roadmap-container"
             class="relative min-h-[1200px] md:min-h-[800px]"
@@ -1112,7 +1122,6 @@
                 stroke-linejoin="round"
               />
             </svg>
-
             <div id="roadmap-cards-container" class="relative w-full h-full">
               <div class="roadmap-card" style="--card-index: 0">
                 <div class="card-content">

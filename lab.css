@@ -122,3 +122,15 @@
   background-color: #e7e5e4; /* stone-200 */
   color: #1c1917; /* stone-900 */
 }
+/* =================================================================== */
+/* STYLES FOR SPLIT-PANE LAYOUT                                      */
+/* =================================================================== */
+
+#top-pane {
+  min-height: 100px; /* Ensures editor doesn't collapse */
+}
+
+#preview-pane,
+#console-container {
+  min-height: 100px; /* Ensures preview/console doesn't collapse */
+}

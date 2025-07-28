@@ -1513,3 +1513,172 @@ body {
     display: none; /* Hide complex lines on mobile */
   }
 }
+/* =================================================================== */
+/* STYLES FOR NEW SYLLABUS SECTION      */
+/* =================================================================== */
+/* =================================================================== */
+/* COMPLETE AND FINAL CSS FOR SYLLABUS SECTION      */
+/* =================================================================== */
+
+.syllabus-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #fff8e1;
+}
+.syllabus-section .section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.syllabus-section h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #1c1917;
+  text-align: center;
+}
+.syllabus-section p {
+  margin-top: 0.75rem;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem;
+  color: #57534e;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* --- New, Reliable Flexbox Layout --- */
+.syllabus-rows-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers the rows horizontally */
+  gap: 1.5rem; /* This creates space between the rows */
+}
+
+.syllabus-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* This creates space between cards in a row */
+}
+
+/* --- Individual Card Styling --- */
+.syllabus-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+  color: #44403c;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+
+  /* These properties ensure all cards are the same size and text is centered */
+  width: 160px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.syllabus-item:hover {
+  transform: translateY(-4px);
+  /* Themed shadow for a nice glow effect */
+  box-shadow: 0 10px 15px -3px rgb(249 115 22 / 0.2),
+    0 4px 6px -4px rgb(249 115 22 / 0.2);
+
+  /* New styles for the hover effect */
+  background-color: #f97316; /* Bright orange background */
+  color: white; /* White text */
+  font-weight: 700; /* Makes text bolder and appear bigger */
+}
+
+/* --- Final, Bulletproof Modal Styles --- */
+#syllabus-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+#syllabus-modal.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+#modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(29, 25, 23, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+.modal-content-container {
+  position: relative;
+  z-index: 1010;
+  width: 100%;
+  max-width: 42rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.2);
+  padding: 2.5rem 2rem 2rem 2rem;
+  transform: scale(0.95);
+  transition: transform 0.3s ease-in-out;
+}
+#syllabus-modal.is-visible .modal-content-container {
+  transform: scale(1);
+}
+.modal-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1020;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  background: transparent;
+  color: #a8a29e;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.modal-close-btn:hover {
+  color: #1c1917;
+  transform: rotate(90deg);
+}
+.modal-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1c1917;
+  margin-bottom: 0.5rem;
+}
+.modal-body {
+  margin-top: 1.5rem;
+  color: #57534e;
+}
+.modal-body h4 {
+  font-weight: 600;
+  color: #44403c;
+  margin-bottom: 0.5rem;
+}
+.modal-body ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

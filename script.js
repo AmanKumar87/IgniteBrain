@@ -733,4 +733,115 @@ document.addEventListener("DOMContentLoaded", () => {
     // Redraw lines on window resize (for responsiveness)
     window.addEventListener("resize", drawLines);
   }
+  // --- SYLLABUS MODAL LOGIC ---
+  // --- SYLLABUS MODAL LOGIC (FINAL CORRECTED VERSION) ---
+  // --- SYLLABUS MODAL LOGIC (FINAL CORRECTED VERSION) ---
+  // --- SYLLABUS MODAL LOGIC (FINAL, GUARANTEED FIX) ---
+  // --- SYLLABUS MODAL LOGIC (FINAL, GUARANTEED FIX) ---
+  const syllabusSection = document.querySelector(".syllabus-section");
+
+  if (syllabusSection) {
+    const syllabusData = {
+      "Class 1": {
+        title: "Syllabus for Class 1: Digital First Steps",
+        content:
+          "<h4>Focus: Digital Introduction & Basic Interaction</h4><ul><li>Identifying Parts of a Computer (Monitor, CPU, Mouse, Keyboard)</li><li>Learning to Click, Double-Click, and Drag-and-Drop</li><li>Introduction to Digital Drawing with Tux Paint</li><li>Simple Logic Puzzles and Shape Recognition Games</li></ul>",
+      },
+      "Class 2": {
+        title: "Syllabus for Class 2: Creative Exploration",
+        content:
+          "<h4>Focus: Digital Creativity & Sequencing</h4><ul><li>Creating Complex Scenes in Digital Art Programs</li><li>Introduction to Sequencing using Block-Based Games</li><li>Understanding Cause and Effect in Digital Environments</li><li>Basic File and Folder Concepts (Saving Work)</li></ul>",
+      },
+      "Class 3": {
+        title: "Syllabus for Class 3: Introduction to Logic Blocks",
+        content:
+          "<h4>Focus: Foundational Coding Concepts</h4><ul><li>Getting Started with Scratch Jr. and its Interface</li><li>Creating Simple Animations and Multi-Scene Stories</li><li>Understanding Events ('On Click') and Basic Loops ('Repeat')</li><li>Introduction to Sprites and Backgrounds</li></ul>",
+      },
+      "Class 4": {
+        title: "Syllabus for Class 4: Scratch Programming",
+        content:
+          "<h4>Focus: Building Interactive Projects</h4><ul><li>Advanced Scratch: Using Variables to Keep Score</li><li>Implementing Conditionals (If/Then/Else blocks)</li><li>Introduction to X/Y Coordinates for Sprite Movement</li><li>Building a Complete, Simple Game (e.g., a maze or pong)</li></ul>",
+      },
+      "Class 5": {
+        title: "Syllabus for Class 5: Design & Prototyping",
+        content:
+          "<h4>Focus: From Idea to Design</h4><ul><li>Fundamentals of User Interface (UI) & User Experience (UX)</li><li>Creating Wireframes and Mockups for Mobile Apps using Canva</li><li>Understanding User Flow and App Navigation</li><li>Basics of Graphic Design Principles (Color, Layout)</li></ul>",
+      },
+      "Class 6": {
+        title: "Syllabus for Class 6: Python - The First Step",
+        content:
+          "<h4>Focus: Transitioning to Text-Based Coding</h4><ul><li>Setting up a Python Coding Environment</li><li>Core Concepts: Variables, Data Types (Strings, Integers, Floats)</li><li>Using Print() and Input() for User Interaction</li><li>Writing Your First Command-Line Scripts</li></ul>",
+      },
+      "Class 7": {
+        title: "Syllabus for Class 7: Building the Web",
+        content:
+          "<h4>Focus: HTML & CSS Fundamentals</h4><ul><li>Understanding How Websites Work (Clients, Servers, HTTP)</li><li>Structuring a Web Page with HTML Tags (headings, paragraphs, links, images)</li><li>Styling with CSS: Selectors, Properties, and Values (color, font-size, margin, padding)</li><li>Building and Publishing a Personal 'About Me' Web Page</li></ul>",
+      },
+      "Class 8": {
+        title: "Syllabus for Class 8: The Responsible Digital Citizen",
+        content:
+          "<h4>Focus: Cybersecurity & Online Safety</h4><ul><li>Understanding Your Digital Footprint and Online Privacy</li><li>How to Create Strong, Secure Passwords</li><li>Identifying Phishing Scams, Malware, and Misinformation</li><li>Practicing Netiquette and Responsible Social Media Use</li></ul>",
+      },
+      "Class 9": {
+        title: "Syllabus for Class 9: Advanced Python Programming",
+        content:
+          "<h4>Focus: Problem Solving with Code</h4><ul><li>Writing Reusable Code with Functions</li><li>Organizing Data with Lists and Dictionaries</li><li>Introduction to Algorithmic Thinking to Solve Complex Problems</li><li>File Handling: Reading from and Writing to Text Files</li></ul>",
+      },
+      "Class 10": {
+        title: "Syllabus for Class 10: The World of AI",
+        content:
+          "<h4>Focus: Introduction to Artificial Intelligence</h4><ul><li>History and types of Artificial Intelligence</li><li>Core Concepts of Machine Learning: Supervised, Unsupervised, and Reinforcement Learning</li><li>Exploring Real-World AI Applications (e.g., recommendation engines, voice assistants)</li><li>Ethical Considerations in AI</li></ul>",
+      },
+      "Class 11": {
+        title: "Syllabus for Class 11: Uncovering Insights with Data",
+        content:
+          "<h4>Focus: Data Science & Visualization</h4><ul><li>Introduction to Data Analysis using Python Libraries (Pandas)</li><li>Reading, Cleaning, and Manipulating Data from CSV files</li><li>Creating Informative Charts and Graphs (Matplotlib)</li><li>Drawing Meaningful Conclusions from Data</li></ul>",
+      },
+      "Class 12": {
+        title: "Syllabus for Class 12: The Capstone Project",
+        content:
+          "<h4>Focus: Building a Portfolio-Ready Project</h4><ul><li>Project Management: Defining Scope, Milestones, and Deadlines</li><li>Independent Development of a Web App, Game, or Data Analysis Project</li><li>Version Control with Git & GitHub</li><li>Testing, Debugging, and Presenting the Final Product</li></ul>",
+      },
+    };
+
+    const syllabusItems = syllabusSection.querySelectorAll(".syllabus-item");
+    const modal = document.getElementById("syllabus-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalBody = document.getElementById("modal-body");
+    const closeBtn = document.getElementById("modal-close-btn");
+    const backdrop = document.getElementById("modal-backdrop");
+
+    const openModal = (classNameKey) => {
+      const data = syllabusData[classNameKey];
+      if (data) {
+        modalTitle.innerText = data.title;
+        modalBody.innerHTML = data.content;
+        modal.classList.add("is-visible");
+      }
+    };
+
+    const closeModal = () => {
+      modal.classList.remove("is-visible");
+    };
+
+    syllabusItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const className = item.querySelector("span").innerText.trim();
+        openModal(className);
+      });
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
+    }
+    if (backdrop) {
+      backdrop.addEventListener("click", closeModal);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("is-visible")) {
+        closeModal();
+      }
+    });
+  }
 });

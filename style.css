@@ -398,7 +398,12 @@ body {
   } /* Hide zigzag on mobile */
 
   #roadmap-container {
-    min-height: auto;
+    --class-color: #fef08a; /* yellow-200 */
+    --class-border: #facc15; /* yellow-400 */
+    --skill-color: #fed7aa; /* orange-200 */
+    --skill-border: #fb923c; /* orange-400 */
+    --line-color: #d6d3d1; /* stone-300 */
+    min-height: 3200px; /* Change this value */
   }
 
   .roadmap-card {
@@ -1007,4 +1012,504 @@ body {
   font-family: "Fira Code", "Courier New", monospace;
   background-color: #f5f5f4; /* stone-100 */
   color: #1c1917;
+}
+/* =================================================================== */
+/* STYLES FOR NEW ZIGZAG TIMELINE ROADMAP                         */
+/* =================================================================== */
+#timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 1500px; /* Provide enough height for absolute positioning */
+}
+
+/* --- SVG Path Animation --- */
+#timeline-svg-path path {
+  stroke-dasharray: 4000; /* A value larger than the path's length */
+  stroke-dashoffset: 4000;
+  transition: stroke-dashoffset 4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+#timeline-container.is-drawing #timeline-svg-path path {
+  stroke-dashoffset: 0;
+}
+
+.timeline-item {
+  position: absolute;
+  width: calc(50% - 40px); /* Half width minus some spacing */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Positioning each item along the zigzag path */
+.timeline-item:nth-child(1) {
+  top: 40px;
+  left: 50%;
+}
+.timeline-item:nth-child(2) {
+  top: 180px;
+  right: 50%;
+}
+.timeline-item:nth-child(3) {
+  top: 320px;
+  left: 50%;
+}
+.timeline-item:nth-child(4) {
+  top: 460px;
+  right: 50%;
+}
+.timeline-item:nth-child(5) {
+  top: 600px;
+  left: 50%;
+}
+.timeline-item:nth-child(6) {
+  top: 740px;
+  right: 50%;
+}
+.timeline-item:nth-child(7) {
+  top: 880px;
+  left: 50%;
+}
+.timeline-item:nth-child(8) {
+  top: 1020px;
+  right: 50%;
+}
+#timeline-trophy {
+  top: 1360px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+.timeline-item:nth-child(odd) {
+  text-align: left;
+}
+.timeline-item:nth-child(even) {
+  text-align: right;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid #f97316; /* Orange-500 */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Position dots for items on the right side of the container */
+.timeline-item:nth-child(odd) .timeline-dot {
+  left: -50px;
+}
+/* Position dots for items on the left side of the container */
+.timeline-item:nth-child(even) .timeline-dot {
+  right: -50px;
+}
+#timeline-trophy .timeline-dot {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #f97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-card {
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-year {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background-color: #fef3c7; /* yellow-100 */
+  color: #92400e; /* yellow-800 */
+  border-radius: 9999px;
+}
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1c1917; /* stone-900 */
+  margin-bottom: 0.25rem;
+}
+.timeline-desc {
+  color: #57534e; /* stone-600 */
+}
+
+/* --- Mobile Fallback (Reverts to the straight vertical line) --- */
+@media (max-width: 767px) {
+  #timeline-container {
+    min-height: auto; /* Let content determine height */
+  }
+
+  /* The vertical line for mobile */
+  #timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10px;
+    transform: none;
+    width: 4px;
+    height: 0;
+    background-color: #fbd38d;
+    border-radius: 2px;
+    transition: height 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  #timeline-container.is-drawing::before {
+    height: 100%;
+  }
+
+  .timeline-item {
+    position: static; /* Remove absolute positioning */
+    width: auto;
+    margin-left: 30px; /* Space for the line and dot */
+    margin-bottom: 30px;
+    text-align: left;
+  }
+
+  .timeline-dot {
+    left: -20px;
+    top: 0;
+  }
+
+  #timeline-trophy {
+    transform: none;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  #timeline-trophy .timeline-dot {
+    position: static; /* Not absolute on mobile */
+    transform: none;
+  }
+}
+/* =================================================================== */
+/* STYLES FOR NEW VERTICAL TIMELINE ROADMAP                       */
+/* =================================================================== */
+#timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* The vertical line */
+#timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 0; /* Initially hidden */
+  background-color: #fbd38d; /* A lighter orange */
+  border-radius: 2px;
+  transition: height 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#timeline-container.is-drawing::before {
+  height: 100%; /* Animate to full height when visible */
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  width: 50%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Align odd items to the left */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  padding-right: 50px;
+  text-align: right;
+}
+
+/* Align even items to the right */
+.timeline-item:nth-child(even) {
+  left: 50%;
+  padding-left: 50px;
+  text-align: left;
+}
+
+.timeline-dot {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid #f97316; /* Orange-500 */
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -10px; /* (width/2) */
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -10px; /* -(width/2) */
+}
+
+/* The Trophy at the end */
+#timeline-trophy .timeline-dot {
+  width: 40px;
+  height: 40px;
+  background-color: #f97316;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#timeline-trophy:nth-child(odd) .timeline-dot {
+  right: -20px;
+}
+#timeline-trophy:nth-child(even) .timeline-dot {
+  left: -20px;
+}
+
+.timeline-card {
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-year {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background-color: #fef3c7; /* yellow-100 */
+  color: #92400e; /* yellow-800 */
+  border-radius: 9999px;
+}
+
+.timeline-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1c1917; /* stone-900 */
+  margin-bottom: 0.25rem;
+}
+
+.timeline-desc {
+  color: #57534e; /* stone-600 */
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 767px) {
+  #timeline-container::before {
+    left: 10px;
+    transform: none;
+  }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    left: 0;
+    padding-left: 50px;
+    padding-right: 0;
+    text-align: left;
+  }
+  .timeline-dot,
+  .timeline-item:nth-child(even) .timeline-dot {
+    left: 1px;
+  }
+}
+/* =================================================================== */
+/* STYLES FOR NEW STEPPER TIMELINE ROADMAP      */
+/* =================================================================== */
+
+#stepper-timeline {
+  position: relative;
+  /* The vertical line */
+}
+#stepper-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 30px; /* Aligned with the icon center */
+  height: 100%;
+  width: 4px;
+  background-color: #fbd38d; /* A lighter orange */
+  border-radius: 2px;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  gap: 1.5rem; /* 24px */
+  margin-bottom: 3rem; /* 48px */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stepper-item:last-child {
+  margin-bottom: 0;
+}
+
+.stepper-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stepper-icon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 4px solid #fbd38d;
+  font-size: 2rem; /* 32px */
+  box-shadow: 0 0 0 6px #ffffff;
+}
+
+.stepper-content {
+  padding-top: 0.5rem; /* 8px */
+}
+
+.stepper-milestone {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem; /* 14px */
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background-color: #fff7ed; /* orange-50 */
+  color: #c2410c; /* orange-700 */
+  border-radius: 9999px;
+}
+
+.stepper-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  color: #1c1917; /* stone-900 */
+  margin-bottom: 0.5rem;
+}
+
+.stepper-desc {
+  color: #57534e; /* stone-600 */
+}
+
+/* --- DESKTOP LAYOUT --- */
+@media (min-width: 768px) {
+  #stepper-timeline::before {
+    left: 50%;
+    margin-left: -2px;
+  }
+
+  .stepper-item {
+    padding: 0 5%;
+  }
+
+  .stepper-icon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .stepper-content {
+    width: 45%; /* Half the width minus gap */
+    padding-top: 0;
+  }
+
+  /* Position odd items to the left */
+  .stepper-item:nth-child(odd) .stepper-content {
+    text-align: right;
+    margin-right: auto;
+  }
+
+  /* Position even items to the right */
+  .stepper-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .stepper-item:nth-child(even) .stepper-content {
+    text-align: left;
+    margin-left: auto;
+  }
+}
+/* =================================================================== */
+/* STYLES FOR INTERACTIVE MIND MAP ROADMAP      */
+/* =================================================================== */
+
+@keyframes node-fade-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Modal Styles --- */
+#roadmap-modal.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+#roadmap-modal.is-visible #modal-content {
+  transform: scale(1);
+}
+
+/* Simple prose styles for modal content */
+#modal-body ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+#modal-body h4 {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* --- Responsive Layout for Mobile --- */
+@media (max-width: 767px) {
+  #roadmap-nodes {
+    grid-template-columns: 1fr; /* Single column */
+    grid-auto-rows: auto;
+    gap: 1rem;
+  }
+  .node-class,
+  .node-skill.pos-left,
+  .node-skill.pos-right {
+    grid-column: 1 / -1; /* All nodes take full width */
+  }
+  #roadmap-lines {
+    display: none; /* Hide complex lines on mobile */
+  }
 }
